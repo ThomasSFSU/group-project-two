@@ -6,3 +6,6 @@ A modern e-commerce solution.
 ![Login Page Mockup](LoginMockup.png)
 ### Main Page
 ![Main Page Mockup](MainPageMockup.png)
+
+## Creators
+Cedric Blanco, Thomas Brock, Preet Vithani
