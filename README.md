@@ -5,3 +5,5 @@ A modern e-commerce solution.
 
 ### Login
 ![Login Page Mockup](LoginMockup.png)
+### Main Page
+![Main Page Mockup](MainPageMockup.png)
