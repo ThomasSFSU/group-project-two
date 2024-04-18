@@ -6,7 +6,8 @@ A modern e-commerce solution.
 ![Login Page Mockup](LoginMockup.png)
 ### Main Page
 ![Main Page Mockup](MainPageMockup.png)
-
+### Profile Page
+![Profile Page Mockup](profilePageMockup.png)
 ## Design Notes
 
 We are aiming to create an e-commerce platform capable of showcasing products and
