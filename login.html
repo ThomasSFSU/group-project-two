@@ -3,12 +3,27 @@
     <head>
         <meta charset="utf-8" />
         <title>Commerce Net Login</title>
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+
+
+        <!-- Design/Reference: https://web.dev/articles/codelab-sign-in-form-best-practices -->
         <h1>Commerce Net Login</h1>
-        <form>
-            
+        <form action="" method="post">
+            <h1>Sign In</h1>
+
+            <section>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="username" required autofocus>
+            </section>
+
+            <section>
+                <label>Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required>
+            </section>
+
+            <button>Sign in</button>
         </form>
     
     </body>
