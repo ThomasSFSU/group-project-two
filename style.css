@@ -1,3 +1,17 @@
+ /* General Styles */
+ body {
+    padding: 0px;
+    margin: 0;
+}
+/* Icons */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
  /* Header and Navigation */
 header {
     position: sticky;
@@ -11,7 +25,9 @@ header {
     z-index: 10000;
     background-color: #000;
     color: #fff;
+    padding: 10px;
 }
+
 #logo {
     height: 32px;
     display: flex;
