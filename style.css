@@ -2,6 +2,9 @@
  body {
     padding: 0px;
     margin: 0;
+    background-image: url("background.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 /* Icons */
 .material-symbols-outlined {
