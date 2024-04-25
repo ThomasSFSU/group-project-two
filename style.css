@@ -1,10 +1,28 @@
- /* General Styles */
+/* Variable Color Pallete */
+:root {
+    --text-color: #2EF2DF;
+    --highlight-text-color: #83f7eb;
+    --hover-text-color: #00b09f;
+    --neon-accent: #39ff14;
+    --dark-bg-color: #5B26A6;
+    --darkest-bg-color: #350F40;
+    --alert-text-color: #BF264F;
+    --border-color: #20308C;
+    font-family: "burnaby-stencil", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* General Styles */
  body {
     padding: 0px;
     margin: 0;
-    background-image: url("background.jpeg");
+    background-image: url("circuit-bg.jpeg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background: cover;
+    background-color: black;
+    color: var(--text-color);
+    width: 100%;
 }
 /* Icons */
 .material-symbols-outlined {
@@ -20,30 +38,29 @@ header {
     position: sticky;
     top: 0;
     left: 0;
+    padding: 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
     z-index: 10000;
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
+    background-color: var(--dark-bg-color);
+    background-image: linear-gradient(to bottom right, var(--darkest-bg-color), var(--border-color));
+    color: var(--text-color);
+    filter: drop-shadow(var(--border-color) 0 0 10px);
 }
 
 #logo {
-    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 header .logo {
     position: relative;
-    font-weight: 700;
-    filter: #fff;
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
-    font-size: 1em;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: 0.6s;
@@ -54,21 +71,61 @@ header ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 16px;
 }
 header ul li {
-    position: relative;
     list-style: none;
-}
-header ul li a {
-    position: relative;
     margin: 0 15px;
-    text-decoration: none;
-    color: #fff;
     letter-spacing: 2px;
-    font-weight: 500;
+    font-size: 2rem;
+    display: inline;
+    vertical-align: top;
     transition: 0.6s;
 }
-
-header ul li a:hover {
-    font-size: 1.2rem;
+header ul li a {
+    color: var(--text-color);
+    text-decoration: none;
 }
+a:hover {
+    color: var(--highlight-text-color);
+    filter: drop-shadow(var(--neon-accent) 0 0 10px);
+}
+
+
+/* Sale Banner */
+  #banner {
+    background-color: black;
+    color: var(--text-color);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    height: 500px;
+    line-height: 10px;
+    text-align: left;
+    background-image: url("banner-model.jpg");
+    background-size: 100%;
+  }
+  .banner-text {
+    font-size: 3rem;
+    padding: 25px;
+  }
+
+
+  .sale-button {
+    padding: 10px 20px;
+    background-color: rgba(0,0,0,0);
+    background-image: linear-gradient(to bottom right, var(--alert-text-color), var(--border-color));
+    border: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 3rem;
+    border-radius: 10px;
+    transition: background-color 0.6s;
+    margin-left: 45px;
+    font-family: "burnaby-stencil", sans-serif;
+    color: var(--text-color);
+  }
+
+  .sale-button:hover {
+    background-color: #0056b3;
+  }
