@@ -138,11 +138,18 @@ a:hover {
   }
   /* Product Catalog */
 
+
   .product-catalog {
-    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+  }
+  #catalog-heading{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0px;
+    text-decoration: underline;
+
   }
 .product-image {
     width: var(--card-width);
