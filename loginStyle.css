@@ -46,23 +46,22 @@
     background-color: var(--darkest-bg-color);
     background-image: linear-gradient(var(--border-color), #F20587);
     padding: 4rem;
-    filter: drop-shadow(black 0 0 1px);
     filter: drop-shadow(orange 0 0 25px);
   }
   
   h1 {
     font-weight: 600;
-    margin: 0 0 20px 0;
+    margin-bottom: 0px;
     padding: 0 0 5px 0;
     text-align: center;
     font-size: xx-large;
   }
   
   input {
-    border: 3px solid rgba(255, 166, 213, 0.4);
-    border-radius: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 255px;
     color: var(--text-color);
-    background-color: rgba(255, 102, 184, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
     
     font-size: 22px; /* fallback */
     font-size: var(--mobile-font-size);
@@ -100,7 +99,7 @@
         text-align: center;
         padding: 10px 20px;
         background-color: rgba(0,0,0,0);
-        background-image: linear-gradient(to bottom right, var(--alert-text-color), var(--border-color));
+        background-image: linear-gradient(var(--alert-text-color), var(--border-color));
         cursor: pointer;
         text-decoration: none;
         font-size: 3rem;
@@ -115,7 +114,7 @@
       font-size: 1rem;
       font-size: calc(3 * var(--desktop-font-size));
       font-weight: 500;
-      margin: 0 0 80px 0;
+      margin: 0 0 10px 0;
     }
     input {
       font-size: 14px; /* fallback */
