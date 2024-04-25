@@ -1,5 +1,5 @@
 :root {
-    --desktop-font-size: 16px;
+    --desktop-font-size: 1.2em;
     --mobile-font-size: 22px;
   }
   /* Variable Color Pallete */
@@ -69,11 +69,27 @@
     width: 90%; /* fallback */
     width: calc(100% - 30px); /* full width minus padding */
   }
+
   
   input[type=email]:not(:focus):invalid,
   input[type=password]:not(:focus):invalid {
     color: var(--alert-text-color);
-    outline-color: red;
+  }
+  input:invalid {
+    border: 3px solid rgba(255, 0, 0, 0.3);
+  }
+
+  input:focus {
+    color: var(--text-color);
+    outline: none;
+    border-color: var(--hover-text-color);
+  }
+
+  input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.1) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--text-color) !important;
   }
   
   label {
