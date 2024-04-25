@@ -8,14 +8,17 @@
     --darkest-bg-color: #350F40;
     --alert-text-color: #BF264F;
     --border-color: #20308C;
+    --darker-bg: #070408;
+    --darker-bg-translucent:  #07040890;
     font-family: "burnaby-stencil", sans-serif;
     font-weight: 400;
     font-style: normal;
+    --card-width: 400px;
 }
 
 /* General Styles */
  body {
-    padding: 0px;
+    padding: 0;
     margin: 0;
     background-image: url("circuit-bg.jpeg");
     background-repeat: no-repeat;
@@ -39,8 +42,8 @@ header {
     top: 0;
     left: 0;
     padding: 10px;
-    width: 100%;
     display: flex;
+    padding-left: 2rem;
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
@@ -134,6 +137,52 @@ a:hover {
     background-color: #0056b3;
   }
   /* Product Catalog */
+
+  .product-catalog {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 .product-image {
+    width: var(--card-width);
+}
+.product-card {
+    position: relative;
+    margin: 10px;
+}
+.product-title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.product-text {
+    /* visibility: hidden;
+    background-color: var(--darker-bg);
+    width: var(--card-width);
+    position: absolute;
+    bottom: 8px;
+    left: 16px; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--darker-bg-translucent);
+    color: white;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 400px;
+    font-size: 1.4rem;
+    
+}
+/* .product-price {
+    position: absolute;
+    font-size: 2rem;
+    top: 8px;
+    right: 16px;
+} */
+    
+.product-card:hover .product-text {
+    visibility: visible;
 }
