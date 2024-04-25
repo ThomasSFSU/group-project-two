@@ -104,6 +104,7 @@ a:hover {
     text-align: left;
     background-image: url("banner-model.jpg");
     background-size: 100%;
+    letter-spacing: 4px;
   }
   .banner-text {
     font-size: 3rem;
