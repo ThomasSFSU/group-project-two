@@ -90,6 +90,11 @@ a:hover {
     color: var(--highlight-text-color);
     filter: drop-shadow(var(--neon-accent) 0 0 10px);
 }
+  .nav-link-wrapper {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
 
 
 /* Sale Banner */
@@ -110,8 +115,6 @@ a:hover {
     font-size: 3rem;
     padding: 25px;
   }
-
-
   .sale-button {
     padding: 10px 20px;
     background-color: rgba(0,0,0,0);
@@ -130,3 +133,7 @@ a:hover {
   .sale-button:hover {
     background-color: #0056b3;
   }
+  /* Product Catalog */
+.product-image {
+    width: 400px;
+}
