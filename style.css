@@ -113,6 +113,7 @@ a:hover {
     background-image: url("banner-model.jpg");
     background-size: 100%;
     letter-spacing: 4px;
+    filter: drop-shadow(var(--border-color) 0 0 10px);
   }
   .banner-text {
     font-size: 3rem;
