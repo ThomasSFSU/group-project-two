@@ -1,15 +1,6 @@
 # group-project-two
 A modern e-commerce solution.
 
-## Mockups
-### Login
-![Login Page Mockup](LoginMockup.png)
-### Main Page
-![Main Page Mockup](MainPageMockup.png)
-### Profile Page
-![Profile Page Mockup](profilePageMockup.png)
-### Checkout Page
-![Checkout Page Mockup](CheckoutPageMockup.png)
 ## Design Notes
 
 We are aiming to create an e-commerce platform capable of showcasing products and
@@ -24,6 +15,16 @@ eyes and easy to read.
 
 The various functionality elements will be developed incrementally in modular fashion. This will
 allow our team to maximize our individual efforts.
+
+## Mockups
+### Login
+![Login Page Mockup](/mockups/LoginMockup.png)
+### Main Page
+![Main Page Mockup](/mockups/MainPageMockup.png)
+### Profile Page
+![Profile Page Mockup](/mockups/profilePageMockup.png)
+### Checkout Page
+![Checkout Page Mockup](/mockups/CheckoutPageMockup.png)
 
 ## Creators
 Cedric Blanco, Thomas Brock, Preet Vithani
