@@ -1,0 +1,146 @@
+:root {
+    --desktop-font-size: 1.2em;
+    --mobile-font-size: 22px;
+  }
+  /* Variable Color Pallete */
+:root {
+    --text-color: #2EF2DF;
+    --highlight-text-color: #83f7eb;
+    --hover-text-color: #00b09f;
+    --neon-accent: #39ff14;
+    --dark-bg-color: #5B26A6;
+    --darkest-bg-color: #350F40;
+    --alert-text-color: #BF264F;
+    --border-color: #20308C;
+    --darker-bg: #070408;
+}
+  
+  body {
+    font-family: "burnaby-stencil", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  button {
+    border-radius: 2px;
+    color: #444;
+    cursor: pointer;
+    display: block;
+    font-size: 22px; /* fallback */
+    font-size: var(--mobile-font-size);
+    font-weight: 500;
+    margin: 3px 0 0 0;
+    padding: 10px;
+  }
+  
+  button:hover {
+    background-color: #ccc;
+
+  }
+  
+  form {
+    margin: 0 auto;
+    margin-top: 3rem;
+    max-width: 500px;
+    border: solid 2px var(--border-color);
+    background-color: var(--darkest-bg-color);
+    background-image: linear-gradient(var(--border-color), #F20587);
+    padding: 4rem;
+    filter: drop-shadow(orange 0 0 25px);
+  }
+  
+  h1 {
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding: 0 0 5px 0;
+    text-align: center;
+    font-size: xx-large;
+  }
+  
+  input {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 255px;
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    font-size: 22px; /* fallback */
+    font-size: var(--mobile-font-size);
+    padding: 15px;
+    width: 90%; /* fallback */
+    width: calc(100% - 30px); /* full width minus padding */
+  }
+
+  
+  input[type=email]:not(:focus):invalid,
+  input[type=password]:not(:focus):invalid {
+    color: var(--alert-text-color);
+  }
+  input:invalid {
+    border: 3px solid rgba(255, 0, 0, 0.3);
+  }
+
+  input:focus {
+    color: var(--text-color);
+    outline: none;
+    border-color: var(--hover-text-color);
+  }
+
+  input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.1) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--text-color) !important;
+  }
+  
+  label {
+    display: block;
+    font-size: 20px;
+    font-size: var(--mobile-font-size);
+    font-weight: 500;
+    margin: 0 0 3px 0;
+  }
+  
+  form section {
+    margin: 0 0 20px 0;
+    position: relative; /* for password toggle positioning */
+  }
+  
+  @media (min-width: 450px) {
+    body {
+      margin: 50px;
+    }
+    button {
+        font-size: 1rem; /* fallback */
+        font-size: var(--desktop-font-size);
+        text-align: center;
+        padding: 10px 20px;
+        background-color: rgba(0,0,0,0);
+        background-image: linear-gradient(var(--alert-text-color), var(--border-color));
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 3rem;
+        border-radius: 10px;
+        transition: background-color 0.6s;
+        font-family: "burnaby-stencil", sans-serif;
+        color: var(--text-color);
+        display: flex;
+        margin:auto;
+    }
+    h1 {
+      font-size: 1rem;
+      font-size: calc(3 * var(--desktop-font-size));
+      font-weight: 500;
+      margin: 0 0 10px 0;
+    }
+    input {
+      font-size: 14px; /* fallback */
+      font-size: var(--desktop-font-size);
+    }
+    label {
+      font-size: 14px; /* fallback */
+      font-size: var(--desktop-font-size);
+    }
+  }
+  
+
+  /* Design/Reference: https://web.dev/articles/codelab-sign-in-form-best-practices */
