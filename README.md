@@ -1,6 +1,9 @@
 # group-project-two
 A modern e-commerce solution.
 
+## Main Page
+![Main Page Design](/mockups/HomepageScreenshot.png)
+
 ## Design Notes
 
 We are aiming to create an e-commerce platform capable of showcasing products and
