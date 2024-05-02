@@ -1,5 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
-const filepath = "users.db";
+const filepath = "database.db";
 const fs = require("fs");
 
 class Database {
@@ -11,17 +11,18 @@ class Database {
             console.log("Connection with SQLite has been established.", filepath, " already exists.");
             return new sqlite3.Database(filepath);
         } else {
-            const db = new sqlite3.Database(filepath, (error) => {
+            this.db = new sqlite3.Database(filepath, (error) => {
                 if (error) {
                   return console.error(error.message);
                 }
-                createTable(db);
               });
-              console.log("Connection with SQLite has been established");
-              return db;
+              this.createUserTable();
+              this.createProductTable();
+              console.log("Connection with SQLite has been established. Tables for users and products have been created.");
+              return;
         }
     }
-    createTable() {
+    createUserTable() {
         this.db.exec(`
         CREATE TABLE users
         (
@@ -30,8 +31,18 @@ class Database {
           password   VARCHAR(50) NOT NULL
         );
       `);
-      }
-    insertRow(username, password) {
+    }
+    createProductTable() {
+      this.db.exec(`
+      CREATE TABLE products
+      (
+        ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        username   VARCHAR(50) NOT NULL,
+        password   VARCHAR(50) NOT NULL
+      );
+    `);
+    }
+    insertUser(username, password) {
         this.db.run(
           `INSERT INTO users (username, password) VALUES (?, ?)`,
           [username, password],
