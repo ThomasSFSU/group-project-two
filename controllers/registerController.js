@@ -1,6 +1,8 @@
-const db = require("../database/db");
-const insertData = require("../database/insertData");
-const showTables = require("../database/listData");
+//const db = require("../database/db");
+// const insertData = require("../database/insertData");
+// const showTables = require("../database/listData");
+//const Database = require('../databaseOOP/Database');
+const database = require('../databaseOOP/Database');
 const fsPromises = require('fs').promises;
 const path = require('path');
 const bcrypt = require('bcrypt');
@@ -13,7 +15,7 @@ const handleNewUser = async (req, res) => {
     if (!user || !pwd) return res.status(400).json({'message': 'username and password are required.'});
     // Check for duplicate usernames
     const sqlCommand = `SELECT * FROM users WHERE username = '${user}'`;
-    db.all(sqlCommand, async (error, rows) => {
+    database.db.all(sqlCommand, async (error, rows) => {
         if(error) {
             throw new Error(error.message);
         }
@@ -25,7 +27,7 @@ const handleNewUser = async (req, res) => {
             try {
                 //Encrypt password
                 const password = await bcrypt.hash(pwd, 10);
-                insertData(user, password);
+                database.insertRow(user, password);
                 res.status(201).json({'message': `User ${user} created.`});
             } catch (err){
                 res.status(500).json({'message': err.message}); //internal server error
