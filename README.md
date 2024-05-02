@@ -3,9 +3,9 @@ A modern e-commerce solution.
 
 ## Mockups
 ### Login
-![Login Page Mockup](LoginMockup.png)
+![Login Page Mockup](/mockups/LoginMockup.png)
 ### Main Page
-![Main Page Mockup](MainPageMockup.png)
+![Main Page Mockup](/mockups/MainPageMockup.png)
 ### Profile Page
 ![Profile Page Mockup](profilePageMockup.png)
 ### Checkout Page
