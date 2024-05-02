@@ -2,7 +2,7 @@
 // const insertData = require("../database/insertData");
 // const showTables = require("../database/listData");
 //const Database = require('../databaseOOP/Database');
-const database = require('../databaseOOP/Database');
+const database = require('../database/Database');
 const fsPromises = require('fs').promises;
 const path = require('path');
 const bcrypt = require('bcrypt');

@@ -1,24 +1,21 @@
-const db = require('../database/db');
+const database = require('../database/Database');
 const bcrypt = require('bcrypt');
 
 const handleLogin = async (req, res) => {
     let user = req.body.username;
     let pwd = req.body.password;
-    console.log(`Attempting to log in: ${user} with password ${pwd}`);
 
     if (!user || !pwd) return res.status(400).json({'message': 'username and password are required.'});
     // Check for if user exists
     const sqlCommand = `SELECT * FROM users WHERE username = '${user}'`;
-    db.all(sqlCommand, async (error, rows) => {
+    database.db.all(sqlCommand, async (error, rows) => {
         if(error) {
-            console.log("error in loginController");
             throw new Error(error.message);
         }
         if(rows.length > 0){
             // The username was found in database
             req.session.username = rows[0].username;
             console.log("session: ", req.session);
-            
 
             console.log("FOUND USERNAME MATCH: ", rows, "USERNAME: ", rows[0].username);
             const hashedPassFromDB = rows[0].password;

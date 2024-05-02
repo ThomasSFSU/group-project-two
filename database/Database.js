@@ -52,19 +52,5 @@ class Database {
           console.log(row);
         });
     }
-    isUserInDB() {
-        this.db.all(sqlCommand, async (error, rows) => {
-            if(error) {
-                throw new Error(error.message);
-            }
-            if(rows.length > 0){
-                // The username was found in database
-                return true;
-            } else {
-                return false;
-            }
-        });
-    }
-    
 }
 module.exports = new Database();

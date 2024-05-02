@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
         console.log("Logged in Username in dashboard.js: ", data);
 
         res.render(path.join(__dirname, '..', 'views', 'pages', 'dashboard.ejs'), data);
-        //res.sendFile(path.join(__dirname, '..', 'views', 'dashboard.html')); // Taken out because o
     } else {
         res.redirect('/login');
     }
