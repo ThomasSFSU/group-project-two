@@ -11,11 +11,10 @@ const handleNewUser = async (req, res) => {
     let user = req.body.username;
     let pwd = req.body.password;
     console.log(`Attempting to create: ${user} with password ${pwd}`);
-    console.log(user, pwd);
     if (!user || !pwd) return res.status(400).json({'message': 'username and password are required.'});
     // Check for duplicate usernames
-    const sqlCommand = `SELECT * FROM users WHERE username = '${user}'`;
-    database.db.all(sqlCommand, async (error, rows) => {
+    const sqlCommand = 'SELECT * FROM users WHERE username = ?';
+    database.db.all(sqlCommand, user, async (error, rows) => {
         if(error) {
             throw new Error(error.message);
         }
@@ -27,7 +26,7 @@ const handleNewUser = async (req, res) => {
             try {
                 //Encrypt password
                 const password = await bcrypt.hash(pwd, 10);
-                database.insertRow(user, password);
+                database.insertUser(user, password);
                 res.status(201).json({'message': `User ${user} created.`});
             } catch (err){
                 res.status(500).json({'message': err.message}); //internal server error
