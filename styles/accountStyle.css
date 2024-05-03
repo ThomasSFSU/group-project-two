@@ -58,7 +58,7 @@ div {
 */
 .account-info {
     width: 100%;
-    height: 150px;
+    min-height: 200px;
     border: 1px solid;
     margin: 10px;
     padding: 5px;
@@ -75,6 +75,15 @@ div {
     margin-left: 10px;
 }
 
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+label {
+    font-size: 2rem;
+    margin-left: 30px;
+}
 .extra-feature {
     width: calc(50% - 30px);
     height: 150px;
@@ -88,9 +97,10 @@ div {
 .extra-feature h2 {
     margin-left: 10px;
     opacity: 100%;
+    font-size: 2rem;
 }
 .extra-feature p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-left: 10px;
     opacity: 100%;
 }
