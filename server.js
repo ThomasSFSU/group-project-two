@@ -8,7 +8,6 @@ const PORT = process.env.port || 3000;
 // Custom routers
 const rootRouter = require('./routes/root.js');
 
-
 // Custom middleware logger
 app.use(logger);
 
