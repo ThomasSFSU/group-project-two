@@ -33,12 +33,15 @@ class Database {
       `);
     }
     createProductTable() {
+      //FIXME TEST THIS FUNCTION
       this.db.exec(`
       CREATE TABLE products
       (
         ID INTEGER PRIMARY KEY AUTOINCREMENT,
-        username   VARCHAR(50) NOT NULL,
-        password   VARCHAR(50) NOT NULL
+        product_name   VARCHAR(50) NOT NULL,
+        product_description   VARCHAR(250) NOT NULL,
+        product_price   INTEGER,
+        product_image   VARCHAR(250) NOT NULL
       );
     `);
     }
@@ -55,6 +58,20 @@ class Database {
           }
         );
     }
+    insertProduct(name, description, productPrice, imagePath){
+      //FIXME TEST THIS FUNCTION
+      this.db.run(
+        `INSERT INTO products (product_name, product_description, product_price, product_image) VALUES (?, ?, ?, ?)`,
+        [name, description, productPrice, imagePath],
+        function (error) {
+          if (error) {
+            console.error(error.message);
+            throw new Error(error.message);
+          }
+          console.log(`Inserted a row to products with the ID: ${this.lastID}`);
+        });
+    }
+
     static selectRows() {
         this.db.each(`SELECT * FROM users`, (error, row) => {
           if (error) {
