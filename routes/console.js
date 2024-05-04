@@ -16,6 +16,6 @@ router.get('/', (req, res) => {
         res.redirect('/login');
     }
 });
-router.post('/add_product', (req, res) => {console.log("works");});
+router.post('/add_product', dbController.addProduct);
 
 module.exports = router;
