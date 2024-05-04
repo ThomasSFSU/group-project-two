@@ -38,6 +38,7 @@ app.use(rootRouter);
 app.use('/register', require('./routes/register'));
 app.use('/login', require('./routes/login.js'));
 app.use('/dashboard', require('./routes/dashboard'));
+app.use('/console', require('./routes/console'));
 app.use('/logout', require('./routes/logout.js'));
 app.use('/checkout', require('./routes/checkout'));
 
