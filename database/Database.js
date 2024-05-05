@@ -71,6 +71,22 @@ class Database {
           console.log(`Inserted a row to products with the ID: ${this.lastID}`);
         });
     }
+    getProducts(){
+      let rows = [];
+      this.db.each(`SELECT * FROM products`, (error, row, rows) => {
+        if (error) {
+          throw new Error(error.message);
+        }
+        console.log(row);
+        let randomVar = row;
+        console.log("random var: ", randomVar);
+        //rows.push(randomVar);
+        // console.log("row: ", row);
+        rows.push(randomVar);
+      });
+      console.log("ROWS", rows);
+      return rows;
+    }
 
     static selectRows() {
         this.db.each(`SELECT * FROM users`, (error, row) => {

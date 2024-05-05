@@ -21,5 +21,4 @@ const addProduct = async (req, res) => {
         res.redirect('/login');
     }
 }
-
 module.exports = {addProduct};
