@@ -7,7 +7,7 @@ const db = require('../database/Database');
 router.get('/', (req, res) => {
     // formulate a query to retrieve relevant products from the db
     let productsTable = db.getProducts();
-    console.log(productsTable);
+    console.log("Products: ", productsTable);
 
     //res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), data);
 

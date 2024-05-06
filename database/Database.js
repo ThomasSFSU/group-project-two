@@ -1,6 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const filepath = "database.db";
 const fs = require("fs");
+const { CLIENT_RENEG_WINDOW } = require("tls");
 
 class Database {
     constructor() {
@@ -72,17 +73,17 @@ class Database {
         });
     }
     getProducts(){
-      let rows = [];
+      let rows = new Array();
       this.db.each(`SELECT * FROM products`, (error, row, rows) => {
         if (error) {
           throw new Error(error.message);
         }
-        console.log(row);
-        let randomVar = row;
-        console.log("random var: ", randomVar);
-        //rows.push(randomVar);
-        // console.log("row: ", row);
-        rows.push(randomVar);
+        let rowVariable = row;
+        console.log(rowVariable.product_name);
+        const name = rowVariable.product_name;
+        console.log("name: ", name);
+        console.log("Type of name: ", typeof(name));
+        rows.push("hi");
       });
       console.log("ROWS", rows);
       return rows;
