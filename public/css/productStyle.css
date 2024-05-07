@@ -1,0 +1,88 @@
+.product-image {
+    width: 500px;
+}
+.product-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+    padding: 64px;
+    background-color: var(--darker-bg-translucent);
+}
+#product-image-section {
+    flex: 1;
+    max-width: 50%;
+    width: 50%;
+}
+#product-facts {
+    flex: 1;
+    max-width: 50%;
+    font-size: xx-large;
+}
+.product-title {
+    text-align: left;
+    font-size: 2rem;
+}
+
+
+/* .product-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--darker-bg-translucent);
+    color: white;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 380px;
+    font-size: 1.4rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+} */
+.product-price {
+    position: static;
+    color: var(--neon-accent);
+    text-shadow: rgb(0, 0, 0) 0px 0 2px,
+                 rgb(247, 0, 255) 1px 0 10px;
+}
+.product-buy-button {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #00ff4890;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    border-radius: 1000px;
+    font-family: "burnaby-stencil", sans-serif;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-shadow: rgb(0, 0, 0) 0px 0 2px,
+                 #FC0 1px 0 10px;
+}
+.product-cart-button {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #0800ff65;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    border-radius: 1000px;
+    font-family: "burnaby-stencil", sans-serif;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-shadow: rgb(0, 0, 0) 0px 0 2px,
+                 rgb(0, 255, 255) 1px 0 10px;
+}
+.product-cart-button:hover {
+    color: var(--highlight-text-color);
+    filter: drop-shadow(blue 0 0 10px);
+}
+.product-buy-button:hover {
+    color: var(--highlight-text-color);
+    filter: drop-shadow(var(--neon-accent) 0 0 10px);
+}
