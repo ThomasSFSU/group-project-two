@@ -26,7 +26,6 @@
     
         <section class="product-catalog">
 
-            <% products.forEach((product)=> { %>
                 <article class="product-card">
                     <% if (product.product_image){ %>
                         <img class="product-image" src="/product-images/<%=product.product_image%>"/>
@@ -44,7 +43,6 @@
                         <a href="products/<%=product.ID%>"><button class="product-buy-button" type="button">BUY NOW!</button></a>
                     </div>
                 </article>
-            <% }) %>
         </section>
     </body>
 </html>

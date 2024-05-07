@@ -84,13 +84,15 @@ class Database {
     }
     getProductByID(id){
       let sql = 'SELECT * FROM products WHERE ID = ?';
-      this.db.get( sql, [id], (error, row) => {
-        if(error){
-          console.error(error.message);
-          throw new Error(error.message);
-        }
-        console.log(row);
-        //FIXME
+      return new Promise(resolve=>{
+        this.db.get( sql, [id], (error, row) => {
+          if(error){
+            console.error(error.message);
+            throw new Error(error.message);
+          }
+          console.log(row);
+          resolve(row);
+        });
       })
     }
 

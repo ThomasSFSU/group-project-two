@@ -40,6 +40,7 @@ app.use('/login', require('./routes/login.js'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/console', require('./routes/console'));
 app.use('/catalog', require('./routes/catalog.js'));
+app.use('/product', require('./routes/product'))
 app.use('/logout', require('./routes/logout.js'));
 app.use('/checkout', require('./routes/checkout'));
 

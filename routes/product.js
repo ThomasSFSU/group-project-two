@@ -1,0 +1,20 @@
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+const db = require('../database/Database');
+
+
+router.get('/', async (req, res) => {
+    let product = await db.getProductByID(1);
+    // formulate a query to retrieve relevant product
+    if(product){
+        console.log("product: ", product);
+        const data = {'product': product};
+        res.render(path.join(__dirname, '..', 'views', 'pages', 'product.ejs'), data);
+    } else {
+        console.log("The number requested is not a valid product!");
+        res.redirect('/catalog');
+    }
+});
+
+module.exports = router;
