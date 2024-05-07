@@ -6,9 +6,9 @@ const path = require('path');
 router.get('^/$|/index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views','index.html'));
   });
-// router.get('^/$|/catalog(.html)?', (req, res) => {
-//   res.sendFile(path.join(__dirname, '..', 'views','catalog.html'));
-// });
+router.get('^/$|/catalog(.html)?', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'views','catalog.html'));
+});
 router.get('/login(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'login.html'));
   })
