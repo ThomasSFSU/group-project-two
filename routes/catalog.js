@@ -11,8 +11,6 @@ router.get('/', async (req, res) => {
     const data = { 'products': productsTable};
     console.log("Products: ", data);
 
-    //console.log(data);
-
     res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), data);
 
     // // Check login status

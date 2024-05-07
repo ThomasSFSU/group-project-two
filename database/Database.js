@@ -61,6 +61,7 @@ class Database {
     }
     insertProduct(name, description, productPrice, imagePath){
       //FIXME TEST THIS FUNCTION
+      this.createProductTable();
       this.db.run(
         `INSERT INTO products (product_name, product_description, product_price, product_image) VALUES (?, ?, ?, ?)`,
         [name, description, productPrice, imagePath],
