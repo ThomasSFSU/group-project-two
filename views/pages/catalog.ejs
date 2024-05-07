@@ -27,16 +27,18 @@
         <section class="product-catalog">
 
             <% products.forEach((product)=> { %>
-                <article class="product_card">
-                    <img class="product-image" src="/product-images/<%=product.product_image%>"/>
+                <article class="product-card">
+                    <% if (product.product_image){ %>
+                        <img class="product-image" src="/product-images/<%=product.product_image%>"/>
+                    <% } else { %>
+                        <img class="product-image" src="/product-images/default.jpg"/>
+                    <% } %>
                     <p class = "old-product-price">WAS: $1,600</p>
                     <p class = "product-price"> NOW: $850</p>
-                    <h3 class = "product-title"><%= product.product_name %></h3>
-                    <p class = "product-description"><%= product.product_description %></p>
                     <div class="product-text">
-                        <h3 class= "product-title"><%= product.product_name %></h3>
-                        <p class = "product-description"><%= product.product_description %></p>
-                       
+                        <h3 class= "product-title" class="product-text"><%= product.product_name %></h3>
+                        <p class = "product-description" class="product-text"><%= product.product_description %></p>
+                        <a href="index.html"><button class="product-buy-button" type="button">BUY NOW!</button></a>
                     </div>
                 </article>
             <% }) %>
