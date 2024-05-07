@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8" />
-        <title>Kommerse Magazine DYNAMIC</title>
+        <title>Kommerse Magazine DYNAMIC PRODUCT VIEW</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- Adobe Font -->
         <link rel="stylesheet" href="https://use.typekit.net/zpe5apk.css">
@@ -11,10 +11,10 @@
     </head>
     <body>
         <header>
-            <a href="index.html" class="logo">Kommerse Magazine DYNAMIC CATALGOG</a>
+            <a href="index.html" class="logo">Kommerse Magazine DYNAMIC PRODUCT VIEW</a>
             <ul>
                 <li><a href="index.html"><div class="nav-link-wrapper">HOME<span class="material-symbols-outlined">home</span></div></a></li>
-                <li><a href="catalog.html"><div class="nav-link-wrapper">STORE<span class="material-symbols-outlined">storefront</span></div></a></li>
+                <li><a href="/catalog"><div class="nav-link-wrapper">STORE<span class="material-symbols-outlined">storefront</span></div></a></li>
                 <li><a href="/dashboard"><div class="nav-link-wrapper">ACCOUNT<span class="material-symbols-outlined">account_circle</span></div></a></li>
                 <li><a href="/checkout"><div class="nav-link-wrapper">CART<span class="material-symbols-outlined">shopping_cart</span></div></a></li>
                 <li><a href="login.html"><div class="nav-link-wrapper">LOGIN<span class="material-symbols-outlined">login</span></div></a></li>
@@ -22,7 +22,7 @@
             </ul>
         </header>
 
-        <a href="#"><h2 id="catalog-heading">PRODUCT CATALOG</h2></a>
+        <a href="#"><h2 id="catalog-heading">PRODUCT View</h2></a>
     
         <section class="product-catalog">
 
@@ -33,11 +33,14 @@
                     <% } else { %>
                         <img class="product-image" src="/product-images/jetpack.jpeg"/>
                     <% } %>
+                    <!-- The following line strips commas from the product price and applies a pre-discount markup -->
                     <p class = "old-product-price">WAS: $<%= 3.53* parseInt((product.product_price).toString().replace(/,/g, "")) %></p>
                     <p class = "product-price"> NOW: $<%=product.product_price%></p>
                     <div class="product-text">
                         <h3 class= "product-title" class="product-text"><%= product.product_name %></h3>
+                        <h3>DUMMY TEXT FOR TEST OF PRODUCT VIEW</h3>
                         <p class = "product-description" class="product-text"><%= product.product_description %></p>
+                        <a href="products/<%=product.ID%>"><button class="product-buy-button" type="button">BUY NOW!</button></a>
                         <a href="products/<%=product.ID%>"><button class="product-buy-button" type="button">BUY NOW!</button></a>
                     </div>
                 </article>
