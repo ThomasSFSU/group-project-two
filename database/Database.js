@@ -73,21 +73,18 @@ class Database {
         });
     }
     getProducts(){
-      let rows = new Array();
-      this.db.each(`SELECT * FROM products`, (error, row) => {
-        if (error) {
-          throw new Error(error.message);
-        }
-        let rowVariable = row;
-        console.log(rowVariable.product_name);
-        const name = rowVariable.product_name;
-        console.log("name: ", name);
-        console.log("Type of name: ", typeof(name));
-        rows.push(row);
-        console.log("ROWS", rows);
+      let rows = [];
+      return new Promise(resolve=>{
+        this.db.all('SELECT * FROM products',(error,rows)=>{
+            if(error){
+                return console.error(error.message);
+            }
+            rows.forEach((row)=>{
+                rows.push(row);
+            });
+            resolve(rows);
+        });
       });
-      console.log("ROWS", rows);
-      return rows;
     }
 
     static selectRows() {

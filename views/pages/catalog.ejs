@@ -23,8 +23,24 @@
         </header>
 
         <a href="#"><h2 id="catalog-heading">PRODUCT CATALOG</h2></a>
+    
         <section class="product-catalog">
-            <article id="card-1" class = "product-card">
+
+            <% products.forEach((product)=> { %>
+                <article class="product_card">
+                    <img class="product-image" src="/product-images/<%=product.product_image%>"/>
+                    <p class = "old-product-price">WAS: $1,600</p>
+                    <p class = "product-price"> NOW: $850</p>
+                    <h3 class = "product-title"><%= product.product_name %></h3>
+                    <p class = "product-description"><%= product.product_description %></p>
+                    <div class="product-text">
+                        <h3 class= "product-title"><%= product.product_name %></h3>
+                        <p class = "product-description"><%= product.product_description %></p>
+                       
+                    </div>
+                </article>
+            <% }) %>
+            <!-- <article id="card-1" class = "product-card">
                 <img class="product-image" src="product-images/jetpack.jpeg"/>
                 <p class = "old-product-price">WAS: $1,600</p>
                 <p class = "product-price"> NOW: $850</p>
@@ -84,7 +100,7 @@
                     <p class = "product-description">The Lunar Locket keeps your data safe and charges it's holographic display efficently using nothing but lunar radiation.</p>
                     <a href="index.html"><button class="product-buy-button" type="button">BUY NOW!</button></a>
                 </div>
-            </article>
+            </article> -->
         </section>
     </body>
 </html>

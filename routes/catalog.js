@@ -4,12 +4,16 @@ const path = require('path');
 const db = require('../database/Database');
 
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     // formulate a query to retrieve relevant products from the db
-    let productsTable = db.getProducts();
-    console.log("Products: ", productsTable);
+    let productsTable = await db.getProducts();
+    console.log("productstable", productsTable);
+    const data = { 'products': productsTable};
+    console.log("Products: ", data);
 
-    res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), productsTable);
+    //console.log(data);
+
+    res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), data);
 
     // // Check login status
     // const isLoggedIn = req.session.isLoggedIn;
