@@ -82,6 +82,17 @@ class Database {
         });
       });
     }
+    getProductByID(id){
+      let sql = 'SELECT * FROM products WHERE ID = ?';
+      this.db.get( sql, [id], (error, row) => {
+        if(error){
+          console.error(error.message);
+          throw new Error(error.message);
+        }
+        console.log(row);
+        //FIXME
+      })
+    }
 
     static selectRows() {
         this.db.each(`SELECT * FROM users`, (error, row) => {
