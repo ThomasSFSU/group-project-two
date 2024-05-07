@@ -7,9 +7,7 @@ const db = require('../database/Database');
 router.get('/', async (req, res) => {
     // formulate a query to retrieve relevant products from the db
     let productsTable = await db.getProducts();
-    console.log("productstable", productsTable);
     const data = { 'products': productsTable};
-    console.log("Products: ", data);
 
     res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), data);
 

@@ -33,8 +33,8 @@
                     <% } else { %>
                         <img class="product-image" src="/product-images/jetpack.jpeg"/>
                     <% } %>
-                    <p class = "old-product-price">WAS: $1,600</p>
-                    <p class = "product-price"> NOW: $850</p>
+                    <p class = "old-product-price">WAS: $<%= 3.53* parseInt((product.product_price).toString().replace(/,/g, "")) %></p>
+                    <p class = "product-price"> NOW: $<%=product.product_price%></p>
                     <div class="product-text">
                         <h3 class= "product-title" class="product-text"><%= product.product_name %></h3>
                         <p class = "product-description" class="product-text"><%= product.product_description %></p>

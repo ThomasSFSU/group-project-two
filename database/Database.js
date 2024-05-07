@@ -60,8 +60,6 @@ class Database {
         );
     }
     insertProduct(name, description, productPrice, imagePath){
-      //FIXME TEST THIS FUNCTION
-      this.createProductTable();
       this.db.run(
         `INSERT INTO products (product_name, product_description, product_price, product_image) VALUES (?, ?, ?, ?)`,
         [name, description, productPrice, imagePath],
@@ -76,13 +74,10 @@ class Database {
     getProducts(){
       let rows = [];
       return new Promise(resolve=>{
-        this.db.all('SELECT * FROM products',(error,rows)=>{
+        this.db.all('SELECT * FROM products',(error, rows)=>{
             if(error){
                 return console.error(error.message);
             }
-            rows.forEach((row)=>{
-                rows.push(row);
-            });
             resolve(rows);
         });
       });
