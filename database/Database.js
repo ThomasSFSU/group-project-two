@@ -74,7 +74,7 @@ class Database {
     }
     getProducts(){
       let rows = new Array();
-      this.db.each(`SELECT * FROM products`, (error, row, rows) => {
+      this.db.each(`SELECT * FROM products`, (error, row) => {
         if (error) {
           throw new Error(error.message);
         }
@@ -83,7 +83,8 @@ class Database {
         const name = rowVariable.product_name;
         console.log("name: ", name);
         console.log("Type of name: ", typeof(name));
-        rows.push("hi");
+        rows.push(row);
+        console.log("ROWS", rows);
       });
       console.log("ROWS", rows);
       return rows;

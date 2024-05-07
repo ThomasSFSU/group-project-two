@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     let productsTable = db.getProducts();
     console.log("Products: ", productsTable);
 
-    //res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), data);
+    res.render(path.join(__dirname, '..', 'views', 'pages', 'catalog.ejs'), productsTable);
 
     // // Check login status
     // const isLoggedIn = req.session.isLoggedIn;
