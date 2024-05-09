@@ -23,6 +23,15 @@
             </ul>
         </header>
         <main>
+            <section class="product-catalog">
+                <ul>
+                    <% cartItems.forEach((item)=> { %>
+                        <li>
+                            <p><%= item.product_id %></p>
+                        </li>
+                    <% }) %>
+                </ul>
+            </section>
             <div class="firstDiv">
             <section class="product">
                 <div class="description">

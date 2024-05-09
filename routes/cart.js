@@ -10,17 +10,16 @@ router.get('/', async (req, res) => {
     // If user is not logged in, redirect to login page
     if(!userId){
         console.log("Must be signed in to add items to cart.");
-        console.log("SHOWING CART FOR USER 2:", await db.getCartItems(2) );
         res.redirect('/login');
     } else { //If a user is logged in
         console.log("Adding to cart product id: ", productId);
         console.log("Adding to cart user id: ", userId);
         db.insertCartItem(userId, productId, 1);
         console.log("Cart Row added!");
+        console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
 
         const data = {
-            username: req.session.username,
-            
+            username: req.session.username
         };
         console.log("showing cart from cart.js: ", data);
 
