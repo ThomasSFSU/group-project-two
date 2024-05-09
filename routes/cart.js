@@ -6,13 +6,18 @@ const db = require('../database/Database');
 
 router.get('/', async (req, res) => {
     let productId = req.query.product_id;
-    let userId = req.query.user_id;
+    let userId = req.session.userId;
     
     console.log("Adding to cart product id: ", productId);
     console.log("Adding to cart user id: ", userId);
-    let cartRow = await db.insertCartItem(userId, productId, 1);
-    console.log("Cart Row added!");
-    console.log("cartRow is now currently after much deliberation: ", cartRow);
+    // If user is not logged in, redirect to login page
+    if(!userId){
+        console.log("Must be signed in to add items to cart.");
+        res.redirect('/login');
+    } else {
+        db.insertCartItem(userId, productId, 1);
+        console.log("Cart Row added!");
+    }
     // Add the item to cart
     // if(product){
     //     console.log("product: ", product);
