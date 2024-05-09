@@ -47,16 +47,15 @@ class Database {
     `);
     }
     createCartsTable() {
-      //FIXME THIS CRASHES THE APP
       this.db.exec(`
       CREATE TABLE carts
       (
         cart_entry_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        product_id        INTEGER NOT NULL,
-        FOREIGN KEY (product_id) REFERENCES products (ID),
-        product_quantity  INTEGER NOT NULL,
         user_id           INTEGER NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users (ID)
+        product_quantity  INTEGER NOT NULL,
+        product_id        INTEGER NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users (ID),
+        FOREIGN KEY (product_id) REFERENCES products (ID)
       );
     `);
     }
@@ -85,10 +84,23 @@ class Database {
           console.log(`Inserted a row to products with the ID: ${this.lastID}`);
         });
     }
+    insertCartItem(user_id, product_id, product_quantity) {
+      // If the proudct is not already in database run the following:
+      this.db.run(
+        `INSERT INTO carts (user_id, proudct_quantity, product_id) VALUES (?, ?, ?)`,
+        [user_id, product_quantity, product_id],
+        function (error) {
+          if (error) {
+            console.error(error.message);
+            throw new Error(error.message);
+          }
+          console.log(`Inserted a row to cart with the ID: ${this.lastID}`);
+        }
+      );
+  }
     getProducts(){
       let rows = [];
       return new Promise(resolve=>{
-        this.createCartsTable(); //FIXME DELETE AFTER ONE USE.
         this.db.all('SELECT * FROM products',(error, rows)=>{
             if(error){
                 return console.error(error.message);
