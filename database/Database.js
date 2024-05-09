@@ -46,6 +46,20 @@ class Database {
       );
     `);
     }
+    createCartsTable() {
+      //FIXME THIS CRASHES THE APP
+      this.db.exec(`
+      CREATE TABLE carts
+      (
+        cart_entry_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        product_id        INTEGER NOT NULL,
+        FOREIGN KEY (product_id) REFERENCES products (ID),
+        product_quantity  INTEGER NOT NULL,
+        user_id           INTEGER NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users (ID)
+      );
+    `);
+    }
     insertUser(username, password) {
         this.db.run(
           `INSERT INTO users (username, password) VALUES (?, ?)`,
@@ -74,6 +88,7 @@ class Database {
     getProducts(){
       let rows = [];
       return new Promise(resolve=>{
+        this.createCartsTable(); //FIXME DELETE AFTER ONE USE.
         this.db.all('SELECT * FROM products',(error, rows)=>{
             if(error){
                 return console.error(error.message);
@@ -95,6 +110,7 @@ class Database {
         });
       })
     }
+
 
     static selectRows() {
         this.db.each(`SELECT * FROM users`, (error, row) => {
