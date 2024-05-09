@@ -15,6 +15,7 @@ const handleLogin = async (req, res) => {
         if(rows.length > 0){
             // The username was found in database
             req.session.username = rows[0].username;
+            console.log("row in user db: ", rows[0]);
             console.log("session: ", req.session);
 
             console.log("FOUND USERNAME MATCH: ", rows, "USERNAME: ", rows[0].username);
@@ -32,6 +33,7 @@ const handleLogin = async (req, res) => {
                 console.log("FOUND USER AND PASSWORD MATCH: ", rows);
                 req.session.isLoggedIn = true;
                 req.session.username = user;
+                req.session.userId = rows[0].ID;
                 res.redirect('/dashboard');
             } else {
                 console.log("password does not match");

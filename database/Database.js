@@ -87,7 +87,7 @@ class Database {
     insertCartItem(user_id, product_id, product_quantity) {
       // If the proudct is not already in database run the following:
       this.db.run(
-        `INSERT INTO carts (user_id, proudct_quantity, product_id) VALUES (?, ?, ?)`,
+        `INSERT INTO carts (user_id, product_quantity, product_id) VALUES (?, ?, ?)`,
         [user_id, product_quantity, product_id],
         function (error) {
           if (error) {
