@@ -97,7 +97,7 @@ class Database {
           console.log(`Inserted a row to cart with the ID: ${this.lastID}`);
         }
       );
-  }
+    }
     getProducts(){
       let rows = [];
       return new Promise(resolve=>{
