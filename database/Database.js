@@ -87,7 +87,7 @@ class Database {
     insertCartItem(user_id, product_id, product_quantity) {
       // If the proudct is not already in database run the following:
       this.db.run(
-        `INSERT INTO carts (user_id, product_quantity, product_id) VALUES (?, ?, ?)`,
+        'INSERT INTO carts (user_id, product_quantity, product_id) VALUES (?, ?, ?)',
         [user_id, product_quantity, product_id],
         function (error) {
           if (error) {
@@ -97,6 +97,17 @@ class Database {
           console.log(`Inserted a row to cart with the ID: ${this.lastID}`);
         }
       );
+    }
+    getCartItems(user_id){
+      const sql = 'SELECT * FROM carts WHERE user_id = ?';
+      return new Promise(resolve=>{
+        this.db.all(sql, [user_id], (error, rows) => {
+          if(error){
+            return console.error(error.message);
+          }
+          resolve(rows);
+        })
+      })
     }
     getProducts(){
       let rows = [];
