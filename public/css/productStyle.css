@@ -1,5 +1,8 @@
 .product-image {
     width: 500px;
+    border: 5px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 0 35px blueviolet;
 }
 .product-card {
     display: flex;
@@ -26,24 +29,6 @@
     text-align: left;
     font-size: 2rem;
 }
-
-
-/* .product-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: var(--darker-bg-translucent);
-    color: white;
-    visibility: hidden;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 380px;
-    font-size: 1.4rem;
-    padding-left: 10px;
-    padding-right: 10px;
-    
-} */
 .product-price {
     position: static;
     color: var(--neon-accent);

@@ -219,3 +219,9 @@ a:hover {
 .product-card:hover .product-text {
     visibility: visible;
 }
+
+.product-image {
+  border: 5px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 35px blueviolet;
+}
