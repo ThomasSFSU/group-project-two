@@ -34,7 +34,7 @@ const handleLogin = async (req, res) => {
                 req.session.isLoggedIn = true;
                 req.session.username = user;
                 req.session.userId = rows[0].ID;
-                res.redirect('/dashboard');
+                res.redirect('/checkout');//FIXME CHANGE TO DASHBOARD after testing
             } else {
                 console.log("password does not match");
                 res.redirect('/dashboard');

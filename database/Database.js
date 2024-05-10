@@ -128,7 +128,6 @@ class Database {
             console.error(error.message);
             throw new Error(error.message);
           }
-          console.log(row);
           resolve(row);
         });
       })

@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <a href="index.html" class="logo">Kommerse Magazine</a>
+            <a href="index.html" class="logo">Kommerse Magazine CHECKOUT EJS</a>
             <ul>
                 <li><a href="index"><div class="nav-link-wrapper">HOME<span class="material-symbols-outlined">home</span></div></a></li>
                 <li><a href="/catalog"><div class="nav-link-wrapper">STORE<span class="material-symbols-outlined">storefront</span></div></a></li>
@@ -24,13 +24,22 @@
         </header>
         <main>
             <section class="product-catalog">
-                <ul>
-                    <% cartItems.forEach((item)=> { %>
-                        <li>
-                            <p><%= item.product_id %></p>
-                        </li>
-                    <% }) %>
-                </ul>
+                <% productsInCart.forEach((product)=> { %>
+                    <article class="product-card">
+                        <% if (product.product_image){ %>
+                            <img class="product-image" src="/product-images/<%=product.product_image%>"/>
+                        <% } else { %>
+                            <img class="product-image" src="/product-images/jetpack.jpeg"/>
+                        <% } %>
+                        <p class = "old-product-price">WAS: $<%= 3.53* parseInt((product.product_price).toString().replace(/,/g, "")) %></p>
+                        <p class = "product-price"> NOW: $<%=product.product_price%></p>
+                        <div class="product-text">
+                            <h3 class= "product-title" class="product-text"><%= product.product_name %></h3>
+                            <p class = "product-description" class="product-text"><%= product.product_description %></p>
+                            <!-- <a href="product?id=<%=product.ID%>"><button class="product-buy-button" type="button">BUY NOW!</button></a> -->
+                        </div>
+                    </article>
+                <% }) %>
             </section>
             <div class="firstDiv">
             <section class="product">

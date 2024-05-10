@@ -16,14 +16,7 @@ router.get('/', async (req, res) => {
         console.log("Adding to cart user id: ", userId);
         db.insertCartItem(userId, productId, 1);
         console.log("Cart Row added!");
-        console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
-
-        const data = {
-            username: req.session.username
-        };
-        console.log("showing cart from cart.js: ", data);
-
-        res.render(path.join(__dirname, '..', 'views', 'pages', 'checkout.ejs'), data);
+        // console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
     }
     // Add the item to cart
     // if(product){

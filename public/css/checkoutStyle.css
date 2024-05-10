@@ -1,116 +1,10 @@
-
-/* Variable Color Pallete */
-:root {
-    --text-color: #2EF2DF;
-    --highlight-text-color: #83f7eb;
-    --hover-text-color: #00b09f;
-    --neon-accent: #39ff14;
-    --dark-bg-color: #5B26A6;
-    --darkest-bg-color: #350F40;
-    --alert-text-color: #BF264F;
-    --border-color: #20308C;
-    --darker-bg: #070408;
-    --darker-bg-translucent:  #07040890;
-    font-family: "burnaby-stencil", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    --card-width: 400px;
-}
-
-/* General Styles */
- body {
-    padding: 0;
-    margin: 0;
-    background-image: url("../images/circuit-bg.jpeg");
-    background-repeat: no-repeat;
-    background: cover;
-    background-color: black;
-    color: var(--text-color);
-    width: 100%;
-}
-/* Icons */
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
- /* Header and Navigation */
-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    display: flex;
-    padding-left: 2rem;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.6s;
-    z-index: 10000;
-    background-color: var(--dark-bg-color);
-    background-image: linear-gradient(to bottom right, var(--darkest-bg-color), var(--border-color));
-    color: var(--text-color);
-    filter: drop-shadow(var(--border-color) 0 0 10px);
-}
-
-#logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-header .logo {
-    position: relative;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.6s;
-}
-
-header ul {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-}
-header ul li {
-    list-style: none;
-    margin: 0 15px;
-    letter-spacing: 2px;
-    font-size: 2rem;
-    display: inline;
-    vertical-align: top;
-    transition: 0.6s;
-}
-header ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-}
-a:hover {
-    color: var(--highlight-text-color);
-    filter: drop-shadow(var(--neon-accent) 0 0 10px);
-}
-  .nav-link-wrapper {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-  }
-
-
-  /* 
-  body css
-  */ 
-
-
 input[type="text"], input[type="text"]:focus {
     padding: 5px;
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    color: aqua;
+    background-color: darkslategrey;
 }
 
 button {
@@ -120,8 +14,6 @@ button {
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
-    
-    
 }
 button:hover {
     color: var(--highlight-text-color);
