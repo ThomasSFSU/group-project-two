@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
         let productsInCart = [];
         for (const item of cartItems){
             let productInfo = await db.getProductByID(item.product_id);
+            productInfo.quantity = item.product_quantity;
             productsInCart.push(productInfo);
         };
         //console.log("products in CART: ", productsInCart);

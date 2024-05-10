@@ -78,3 +78,12 @@ aside {
     background-color: var(--darker-bg);
     font-family: Arial, sans-serif;
 }
+
+.product-image {
+    width: 100px;
+    padding: 10px;
+}
+.product-card {
+    width: 100%;
+    background-color: black;
+}
