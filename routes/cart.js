@@ -12,11 +12,22 @@ router.get('/', async (req, res) => {
         console.log("Must be signed in to add items to cart.");
         res.redirect('/login');
     } else { //If a user is logged in
-        console.log("Adding to cart product id: ", productId);
-        console.log("Adding to cart user id: ", userId);
-        db.insertCartItem(userId, productId, 1);
-        console.log("Cart Row added!");
-        // console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
+
+        if(!db.itemIsInCart(userId, productId)){
+            //UPDATE QUANTITY OF ITEM
+            console.log("THE item Is In Cart");
+            db.incrementItemQuantity(userId, productId);
+            
+        } else{
+            //fix this
+            db.incrementItemQuantity(userId, productId);
+            // ITEM NOT IN CART SO ADD IT
+            console.log("Adding to cart product id: ", productId);
+            console.log("Adding to cart user id: ", userId);
+            //db.insertCartItem(userId, productId, 1);
+            console.log("Cart Row added!");
+        }
+        console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
     }
     // Add the item to cart
     // if(product){

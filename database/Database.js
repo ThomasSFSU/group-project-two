@@ -84,8 +84,35 @@ class Database {
           console.log(`Inserted a row to products with the ID: ${this.lastID}`);
         });
     }
+    itemIsInCart(user_id, product_id){
+      // Check if product is in the userbase already for this user.
+      // let isProductInDB = false;
+      return this.db.all('SELECT * FROM carts WHERE user_id = ? AND product_id = ?',
+        [user_id, product_id],
+        function (error, rows) {
+          if (error) {
+            console.error(error.message);
+            throw new Error(error.message);
+          }
+          if(rows.length >= 1){
+            return true;
+          }
+          return false;
+        }
+      )
+    }
+    incrementItemQuantity(user_id, product_id){
+      const sql = 'UPDATE carts SET product_quantity = product_quantity + 1 WHERE user_id = ? AND product_id = ?';
+      this.db.run(sql, [user_id, product_id], (error) => {
+        if (error) {
+          console.error(error.message);
+          throw new Error(error.message);
+        }
+        console.log('Updated a row of the cart with the a higher quantity.');
+      })
+    }
     insertCartItem(user_id, product_id, product_quantity) {
-      // If the proudct is not already in database run the following:
+      // If the product is not already in database run the following:
       this.db.run(
         'INSERT INTO carts (user_id, product_quantity, product_id) VALUES (?, ?, ?)',
         [user_id, product_quantity, product_id],
