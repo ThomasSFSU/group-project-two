@@ -85,21 +85,20 @@ class Database {
         });
     }
     itemIsInCart(user_id, product_id){
-      // Check if product is in the userbase already for this user.
-      // let isProductInDB = false;
-      return this.db.all('SELECT * FROM carts WHERE user_id = ? AND product_id = ?',
-        [user_id, product_id],
-        function (error, rows) {
-          if (error) {
-            console.error(error.message);
-            throw new Error(error.message);
+      return new Promise( (resolve, reject) => {
+        const sql = 'SELECT * FROM carts WHERE user_id = ? AND product_id = ?';
+        this.db.all(sql, [user_id, product_id], (error, rows) =>{
+          if(error){
+            console.error = error.message;
+            return reject(error);
           }
           if(rows.length >= 1){
-            return true;
+            return resolve(true);
+          } else {
+            return resolve(false);
           }
-          return false;
-        }
-      )
+        })
+      })
     }
     incrementItemQuantity(user_id, product_id){
       const sql = 'UPDATE carts SET product_quantity = product_quantity + 1 WHERE user_id = ? AND product_id = ?';
