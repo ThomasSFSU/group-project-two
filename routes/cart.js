@@ -36,6 +36,26 @@ router.get('/delete', (req, res) => {
     db.deleteCartItem(userId, productId);
     console.log('item deleted');
     res.redirect('/checkout');
+});
+router.get('/decrement', (req, res) => {
+    let productId = req.query.product_id;
+    let userId = req.session.userId;
+    console.log('received a request to decrement route');
+    console.log("user id", userId);
+    console.log('product_id', productId);
+    db.decrementCartItem(userId, productId);
+    console.log('item decremented');
+    res.redirect('/checkout');
+});
+router.get('/increment', (req, res) => {
+    let productId = req.query.product_id;
+    let userId = req.session.userId;
+    console.log('received a request to decrement route');
+    console.log("user id", userId);
+    console.log('product_id', productId);
+    db.incrementItemQuantity(userId, productId);
+    console.log('item incremented');
+    res.redirect('/checkout');
 })
 
 module.exports = router;

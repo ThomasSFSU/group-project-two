@@ -110,6 +110,16 @@ class Database {
         console.log('Updated a row of the cart with the a higher quantity.');
       })
     }
+    decrementCartItem(user_id, product_id){
+      const sql = 'UPDATE carts SET product_quantity = product_quantity -1 WHERE user_id = ? AND product_id = ?';
+      this.db.run(sql, [user_id, product_id], (error) => {
+        if (error) {
+          console.error(error.message);
+          throw new Error(error.message);
+        }
+        console.log('Updated a row of the cart with the a higher quantity.');
+      })
+    }
     insertCartItem(user_id, product_id, product_quantity) {
       // If the product is not already in database run the following:
       this.db.run(
