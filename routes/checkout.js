@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
             productInfo.quantity = item.product_quantity;
             productsInCart.push(productInfo);
         };
-        //console.log("products in CART: ", productsInCart);
 
         // Create a data object to be passed to the template
         const data = {

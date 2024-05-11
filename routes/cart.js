@@ -23,17 +23,19 @@ router.get('/', async (req, res) => {
             db.insertCartItem(userId, productId, 1);
             console.log("Cart Row added!");
         }
-        console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
+        //console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
     }
-    // Add the item to cart
-    // if(product){
-    //     console.log("product: ", product);
-    //     const data = {'product': product};
-    //     res.render(path.join(__dirname, '..', 'views', 'pages', 'product.ejs'), data);
-    // } else {
-    //     console.log("The number requested is not a valid product!");
-    //     res.redirect('/catalog');
-    // }
 });
+
+router.get('/delete', (req, res) => {
+    let productId = req.query.product_id;
+    let userId = req.session.userId;
+    console.log('received a request to delete route');
+    console.log("user id", userId);
+    console.log('product_id', productId);
+    db.deleteCartItem(userId, productId);
+    console.log('item deleted');
+    res.redirect('/checkout');
+})
 
 module.exports = router;

@@ -124,6 +124,17 @@ class Database {
         }
       );
     }
+    deleteCartItem(user_id, product_id){
+      const sql = 'DELETE FROM carts WHERE user_id = ? AND product_id = ?';
+      this.db.run(sql, [user_id, product_id], (error) => {
+        if(error){
+          console.error(error.message);
+          throw new Error(error.message);
+        }
+        
+        console.log('Deleted item from cart.');
+      })
+    }
     getCartItems(user_id){
       const sql = 'SELECT * FROM carts WHERE user_id = ?';
       return new Promise(resolve=>{
