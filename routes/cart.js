@@ -16,12 +16,14 @@ router.get('/', async (req, res) => {
             //UPDATE QUANTITY OF ITEM
             console.log("THIS SHOULDNT BE TRIGGERED FOR NEW ITEM");
             db.incrementItemQuantity(userId, productId);
+            res.redirect('/catalog');
         } else{
             // ITEM NOT IN CART SO ADD IT
             console.log("Adding to cart product id: ", productId);
             console.log("Adding to cart user id: ", userId);
             db.insertCartItem(userId, productId, 1);
             console.log("Cart Row added!");
+            res.redirect('/catalog');
         }
         //console.log("SHOWING CART FOR", req.session.username, ": ", await db.getCartItems(userId));
     }
