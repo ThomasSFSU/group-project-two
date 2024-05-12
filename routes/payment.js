@@ -36,15 +36,39 @@ router.get('/', async (req, res) => {
 });
 // MORE STRIPE STUFF. EVENTUALLY MAKE THIS A SEPERATE ROUTER
 router.post('/create-checkout-session', async (req, res) => {
+  // Get products from cart
+  const isLoggedIn = req.session.isLoggedIn;
+  if(!isLoggedIn){ res.redirect('/login');};
+  const user_id = req.session.userId;
+  const cartItems = await db.getCartItems(user_id);
+  let productsInCart = [];
+  for (const item of cartItems){
+      let productInfo = await db.getProductByID(item.product_id);
+      productInfo.quantity = item.product_quantity;
+      productsInCart.push(productInfo);
+  };
+  console.log("Products in cart: ", productsInCart);
+
+  const productPrices = [ 'price_1PFNzPHG3I7WJJZ7XAAwpgsW', // product 1
+                          'price_1PFSTaHG3I7WJJZ77DwpVDu8', // product 2
+                          'price_1PFSVLHG3I7WJJZ7Os2R0ajE', // product 3
+                          'price_1PFSWXHG3I7WJJZ7Th3qVExg', // product 4
+                          'price_1PFSXMHG3I7WJJZ7mxdOARlo', // product 5
+                          'price_1PFSYuHG3I7WJJZ7AuM6iFbH'  // product 6
+                        ];
+
+  const items = productsInCart.map((item) => {
+     return {
+        price: productPrices[item.ID - 1],
+        quantity: item.quantity,
+      }
+  })
+  console.log(items);
+
+
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
-      line_items: [
-        {
-          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: 'price_1PFNzPHG3I7WJJZ7XAAwpgsW',
-          quantity: 1,
-        },
-      ],
+      line_items: items,
       mode: 'payment',
       return_url: `${DOMAIN}/return?session_id={CHECKOUT_SESSION_ID}`,
     });
