@@ -71,6 +71,7 @@ router.post('/create-checkout-session', async (req, res) => {
       line_items: items,
       mode: 'payment',
       return_url: `${DOMAIN}/return?session_id={CHECKOUT_SESSION_ID}`,
+      automatic_tax: {enabled: true}
     });
   
     res.send({clientSecret: session.client_secret});
