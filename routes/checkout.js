@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
             productsInCart: productsInCart,
             user_id: user_id
         };
-        res.render(path.join(__dirname, '..', 'views', 'pages', 'checkout.ejs'), data);
+        res.render(path.join(__dirname, '..', 'views', 'pages', 'payment.ejs'), data);
     } else {
         res.redirect('/login');
     }
