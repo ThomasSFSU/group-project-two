@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const db = require('../database/Database')
+const db = require('../database/Database');
 
 router.get('/', async (req, res) => {
     const isLoggedIn = req.session.isLoggedIn;
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
             productsInCart: productsInCart,
             user_id: user_id
         };
-        res.render(path.join(__dirname, '..', 'views', 'pages', 'payment.ejs'), data);
+        res.render(path.join(__dirname, '..', 'views', 'pages', 'checkout.ejs'), data);
     } else {
         res.redirect('/login');
     }
