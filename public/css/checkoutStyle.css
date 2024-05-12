@@ -87,3 +87,7 @@ aside {
     width: 100%;
     background-color: black;
 }
+
+#root div {
+    background-color: #4CAF50;
+}
