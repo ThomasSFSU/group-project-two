@@ -88,3 +88,10 @@ aside {
     background-color: black;
 }
 
+a {
+    color: var(--highlight-text-color);
+    filter: drop-shadow(black 0 0 15px);
+}
+a:hover {
+    filter: drop-shadow(var(--neon-accent) 0 0 5px);
+}

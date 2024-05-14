@@ -33,10 +33,10 @@
                         <% } %>
                         <!-- <p class = "product-price"> NOW: $<%=product.product_price%></p> -->
                         <h3><%= product.product_name %> <%= product.quantity %> $<%=product.product_price%></p></h3>
-                        <a href="cart/delete?product_id=<%=product.ID%>"><button>delete item</button></a>
-                        <a href="cart/increment?product_id=<%=product.ID%>"><button>add 1 of item</button></a>
+                        <a href="cart/delete?product_id=<%=product.ID%>"><span class="material-symbols-outlined">remove_shopping_cart</span></a>
+                        <a href="cart/increment?product_id=<%=product.ID%>"><span class="material-symbols-outlined">add_circle</span></a>
                         <% if (product.quantity > 1){ %>
-                            <a href="cart/decrement?product_id=<%=product.ID%>"><button>delete one of item</button></a>
+                            <a href="cart/decrement?product_id=<%=product.ID%>"><span class="material-symbols-outlined">remove_circle</span></a>
                         <% } %>
                             <!-- <a href="product?id=<%=product.ID%>"><button class="product-buy-button" type="button">BUY NOW!</button></a> -->
                         </div>
@@ -44,7 +44,7 @@
                 <% }) %>
             </section>
             <section>
-                <a href="/payment">Contine to payment</a>
+                <a href="/payment">Continue to checkout! <span class="material-symbols-outlined">arrow_forward_ios</span></a>
             </section>
 
             <!-- <div class="secondDiv">
