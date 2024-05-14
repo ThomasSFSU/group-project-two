@@ -34,7 +34,6 @@ class Database {
       `);
     }
     createProductTable() {
-      //FIXME TEST THIS FUNCTION
       this.db.exec(`
       CREATE TABLE products
       (
@@ -56,6 +55,18 @@ class Database {
         product_id        INTEGER NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users (ID),
         FOREIGN KEY (product_id) REFERENCES products (ID)
+      );
+    `);
+    }
+    createProfilesTable() {
+      this.db.exec(`
+      CREATE TABLE carts
+      (
+        profile_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id           INTEGER NOT NULL,
+        profile_pic_url  VARCHAR(255) NOT NULL,
+        email,        VARCHAR(255) NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users (ID)
       );
     `);
     }
