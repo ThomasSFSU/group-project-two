@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <a href="index.html" class="logo">Kommerse Magazine CHECKOUT EJS</a>
+            <a href="index.html" class="logo">Kommerse Magazine</a>
             <ul>
                 <li><a href="index"><div class="nav-link-wrapper">HOME<span class="material-symbols-outlined">home</span></div></a></li>
                 <li><a href="/catalog"><div class="nav-link-wrapper">STORE<span class="material-symbols-outlined">storefront</span></div></a></li>
@@ -20,56 +20,33 @@
                 <li><a href="/checkout"><div class="nav-link-wrapper">CART<span class="material-symbols-outlined">shopping_cart</span></div></a></li>
                 <li><a href="login.html"><div class="nav-link-wrapper">LOGIN<span class="material-symbols-outlined">login</span></div></a></li>
                 <li><a href="signup.html"><div class="nav-link-wrapper">SIGN UP<span class="material-symbols-outlined">person_add</span></div></a></li>
+                <li><a href="/logout"><div class="nav-link-wrapper">LOG OUT<span class="material-symbols-outlined">logout</span></div></a></li>
             </ul>
         </header>
         <main>
+            <h2 id="review-order-title">REVIEW ORDER</h2>
             <section class="product-list">
                 <% productsInCart.forEach((product)=> { %>
                     <article class="product-card">
-                        <% if (product.product_image){ %>
-                            <img class="product-image" src="/product-images/<%=product.product_image%>"/>
-                        <% } else { %>
-                            <img class="product-image" src="/product-images/jetpack.jpeg"/>
-                        <% } %>
-                        <!-- <p class = "product-price"> NOW: $<%=product.product_price%></p> -->
-                        <h3><%= product.product_name %> <%= product.quantity %> $<%=product.product_price%></p></h3>
-                        <a href="cart/delete?product_id=<%=product.ID%>"><span class="material-symbols-outlined">remove_shopping_cart</span></a>
-                        <a href="cart/increment?product_id=<%=product.ID%>"><span class="material-symbols-outlined">add_circle</span></a>
-                        <% if (product.quantity > 1){ %>
-                            <a href="cart/decrement?product_id=<%=product.ID%>"><span class="material-symbols-outlined">remove_circle</span></a>
-                        <% } %>
-                            <!-- <a href="product?id=<%=product.ID%>"><button class="product-buy-button" type="button">BUY NOW!</button></a> -->
+                        <div id="img-and-quantity">
+                            <div>
+                                <% if (product.product_image){ %>
+                                    <img class="product-image" src="/product-images/<%=product.product_image%>"/>
+                                <% } else { %>
+                                    <img class="product-image" src="/product-images/jetpack.jpeg"/>
+                                <% } %>
+                            </div>
+                            <div>
+                                <p id="quantity"><a href="cart/decrement?product_id=<%=product.ID%>"><span class="material-symbols-outlined">remove_circle</span></a> <%= product.quantity %> <a href="cart/increment?product_id=<%=product.ID%>"><span class="material-symbols-outlined">add_circle</span></a></p>
+                            </div>
+                        </div>
+                        <h3><%= product.product_name %> ($<%=product.product_price%>)</h3>
+                        <a href="cart/delete?product_id=<%=product.ID%>"><span class="material-symbols-outlined">cancel</span></a>
                         </div>
                     </article>
                 <% }) %>
+                <a href="/payment" id="continue-link">CHECKOUT > </a>
             </section>
-            <section>
-                <a href="/payment">Continue to checkout! <span class="material-symbols-outlined">arrow_forward_ios</span></a>
-            </section>
-
-            <!-- <div class="secondDiv">
-            <section class="payment-info">
-                <h3>Payment Details</h3>
-                <p><label for="card-number">Card Number:</label><input type="text" id="card-number"></p>
-                <p><label for="card-name"> Name on the Card:</label><input type="text" id="card-name"></p>
-                <p><label for="card-expiry">Expiry Date:</label><input type="text" id="card-expiry" placeholder="MM/YY"></p>
-                <p><label for="card-cvv">CVV:</label><input type="text" id="card-cvv"></p>
-            </section>
-
-            <aside>
-                <h3>Summary</h3>
-                <p>Teleportal Mobile: $650</p>
-                <p>80-Y Laptop: $999</p>
-                <p>Lunar Locket: $160</p>
-                <p>Shipping: $50</p>
-                <input type="text" placeholder="Promo Code">
-                <button>Submit</button>
-                <p>Discount: -$915</p>
-                <p>Tax: $180</p>
-                <h2>Total: $1164</h2>
-                <button style="margin-left: 130px; padding: 10px 20px;">Pay</button>
-            </aside>
-        </div> -->
         </main>
     </body>
 </html>

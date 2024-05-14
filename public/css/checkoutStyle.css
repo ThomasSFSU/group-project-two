@@ -1,97 +1,80 @@
-input[type="text"], input[type="text"]:focus {
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: aqua;
-    background-color: darkslategrey;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-button:hover {
-    color: var(--highlight-text-color);
-    filter: drop-shadow(var(--neon-accent) 0 0 10px);
-}
-
 main {
-   
-   display: flex;
-   justify-content: space-between;
-    margin: 20px;
+ margin: 10%;
+ margin-top: 0px;
+ font-size: xx-large;
+ background-color: var(--darker-bg-translucent);
+ border-bottom-right-radius: 25px;
+ border-bottom-left-radius: 25px;
 }
-
-.firstDiv{
-    align-items: flex-start;
-    width: 65%;
-}
-
-.secondDiv{
-    width: 30%;
-    align-items: flex-start;
-}
-
-.product {
-    display: flex;
-    align-items: center;
-    background-color: var(--darker-bg);
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 100%; 
-
-}
-
-.product img {
-    width: 200px;
-    height: auto;
-    float: left;
-    margin-right: 20px;
-}
-
-.description {
-    flex: 1;
-    padding-right: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.payment-info {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: var(--darker-bg);
-    font-family: Arial, sans-serif;
-    width: 85%;
-}
-
-aside {
-    border: 1px solid #ccc;
-    width: 85%;
-    padding: 10px;
-    background-color: var(--darker-bg);
-    font-family: Arial, sans-serif;
-}
-
-.product-image {
-    width: 100px;
-    padding: 10px;
-}
-.product-card {
-    width: 100%;
-    background-color: black;
-}
-
 a {
     color: var(--highlight-text-color);
     filter: drop-shadow(black 0 0 15px);
 }
 a:hover {
     filter: drop-shadow(var(--neon-accent) 0 0 5px);
+}
+
+.product-list {
+    margin: 0;
+
+}
+
+/* All the below is added */
+.product-image {
+    width: 100px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 0 5px blueviolet;
+    margin-right: 64px;
+}
+.product-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: var(--darker-bg-translucent);
+    box-shadow: 0 0 5px blueviolet;
+    border-radius: 15px;
+
+}
+#product-image-section {
+    flex: 1;
+    max-width: 50%;
+    width: 50%;
+    align-items: left;
+}
+#product-facts {
+    flex: 1;
+    max-width: 50%;
+    font-size: xx-large;
+}
+.product-title {
+    text-align: left;
+    font-size: 2rem;
+}
+
+#quantity {
+    text-align: center;
+    width: 100px;
+    margin:0;
+}
+
+#review-order-title {
+    margin-top: 0px;
+    padding-left: 32px;
+    padding-top: 10px;
+}
+#continue-link {
+    text-align: right;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    font-size: 2rem;
+    color: var(--neon-accent);
+    padding-top: 8px;
+    padding-bottom: 32px;
 }
