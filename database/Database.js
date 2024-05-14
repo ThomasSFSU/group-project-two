@@ -71,6 +71,7 @@ class Database {
     `);
     }
     addProfile(user_id, profile_img_path, email) {
+      
       this.db.run(
         'INSERT INTO profiles (user_id, profile_img_path, email) VALUES (?, ?, ?)',
         [user_id, profile_img_path, email],
@@ -82,6 +83,22 @@ class Database {
           console.log(`Inserted a row to profiles with the ID: ${this.lastID}`);
         }
       );
+    }
+    profileExists(user_id, product_id){
+      return new Promise( (resolve, reject) => {
+        const sql = 'SELECT * FROM profiles WHERE user_id = ?';
+        this.db.all(sql, [user_id], (error, rows) =>{
+          if(error){
+            console.error = error.message;
+            return reject(error);
+          }
+          if(rows.length >= 1){
+            return resolve(true);
+          } else {
+            return resolve(false);
+          }
+        })
+      })
     }
     insertUser(username, password) {
         this.db.run(
@@ -204,8 +221,6 @@ class Database {
         });
       })
     }
-
-
     static selectRows() {
         this.db.each(`SELECT * FROM users`, (error, row) => {
           if (error) {

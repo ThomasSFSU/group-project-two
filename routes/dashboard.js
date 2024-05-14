@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
     if (isLoggedIn) {
         const data = {username: req.session.username}
         console.log("Logged in Username in dashboard.js: ", data);
-
-        res.render(path.join(__dirname, '..', 'views', 'pages', 'dashboard.ejs'), data);
+        //FIXME -- add conditional logic to only render customizer when first creating account.
+        res.render(path.join(__dirname, '..', 'views', 'pages', 'customize_profile.ejs'), data);
     } else {
         res.redirect('/login');
     }

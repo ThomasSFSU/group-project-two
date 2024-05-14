@@ -23,6 +23,18 @@
         </header>
             <main>
                 <h1>Hi <%= username %> welcome to the site!</h1>
+                <form action="/login" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <select>
+                        <option style="background-image:url('profile-images/profileOne.jpg');">X</option>
+                        <option style="background-image:url();">female</option>
+                        <option style="background-image:url();">others</option>
+                        </select> 
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <button type="submit">Submit</button>
+                </form>
                 
                 <article class="profile-info">
                     <h1>Profile Picture</h1>
