@@ -60,15 +60,28 @@ class Database {
     }
     createProfilesTable() {
       this.db.exec(`
-      CREATE TABLE carts
+      CREATE TABLE profiles
       (
         profile_id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id           INTEGER NOT NULL,
-        profile_pic_url  VARCHAR(255) NOT NULL,
+        profile_img_path  VARCHAR(255) NOT NULL,
         email,        VARCHAR(255) NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users (ID)
       );
     `);
+    }
+    addProfile(user_id, profile_img_path, email) {
+      this.db.run(
+        'INSERT INTO profiles (user_id, profile_img_path, email) VALUES (?, ?, ?)',
+        [user_id, profile_img_path, email],
+        function (error) {
+          if (error) {
+            console.error(error.message);
+            throw new Error(error.message);
+          }
+          console.log(`Inserted a row to profiles with the ID: ${this.lastID}`);
+        }
+      );
     }
     insertUser(username, password) {
         this.db.run(
@@ -95,6 +108,7 @@ class Database {
           console.log(`Inserted a row to products with the ID: ${this.lastID}`);
         });
     }
+
     itemIsInCart(user_id, product_id){
       return new Promise( (resolve, reject) => {
         const sql = 'SELECT * FROM carts WHERE user_id = ? AND product_id = ?';
