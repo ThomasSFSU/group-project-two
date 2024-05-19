@@ -27,26 +27,18 @@ const handleLogin = async (req, res) => {
             const isCorrect = await bcrypt.compare(pwd, hashedPassFromDB);
             console.log("is correct is: ", isCorrect);
             if(isCorrect){
-                //password match
-                console.log("Password found");
-                //LOGIN USER HERE FIXME?
-                console.log("FOUND USER AND PASSWORD MATCH: ", rows);
                 req.session.isLoggedIn = true;
                 req.session.username = user;
                 req.session.userId = rows[0].ID;
-                res.redirect('/checkout');//FIXME CHANGE TO DASHBOARD after testing
+                res.redirect('/dashboard');
             } else {
                 console.log("password does not match");
                 res.redirect('/dashboard');
-                //res.sendStatus(401); //unathorized
             }
         } else {
             // user not found
             console.log("not found");
-            // send alert to user
-            //FIXME
-
-            return res.redirect(401, '/login'); // Unauthorized error code and redirects to dashboard if user doesn't exist
+            return res.redirect('/login'); // Unauthorized error code and redirects to dashboard if user doesn't exist
             //Unauthorized .. FIXME: Change this to a client side warning in future.
         }
     });

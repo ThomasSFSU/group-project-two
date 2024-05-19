@@ -7,6 +7,7 @@ async function initialize() {
   const response = await fetch(`/session-status?session_id=${sessionId}`);
   const session = await response.json();
 
+  console.log("In return js.");
   if (!session.status){
     console.log("must be logged in");
     window.replace('http://localhost:3000/checkout.ejs')
@@ -15,6 +16,6 @@ async function initialize() {
     window.replace('http://localhost:3000/checkout.ejs')
   } else if (session.status == 'complete') {
     document.getElementById('success').classList.remove('hidden');
-    document.getElementById('customer-email').textContent = session.customer_email
+    document.getElementById('customer-email').textContent = session.customer_email;
   }
 }
