@@ -1,0 +1,12 @@
+section {
+    text-align: center;
+    width: 80%;
+    padding: 50px;
+    margin: auto;
+    font-size: xx-large;
+    margin-top: 0px;
+    background-color: var(--darker-bg-translucent);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    color: var(--neon-accent);
+}

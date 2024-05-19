@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     const user_id = req.session.userId;
     if (isLoggedIn) {
         const cartItems = await db.getCartItems(user_id);
+        if(cartItems.length === 0) {return res.redirect('/')};
         let productsInCart = [];
         for (const item of cartItems){
             let productInfo = await db.getProductByID(item.product_id);
@@ -34,7 +35,7 @@ router.get('/', async (req, res) => {
         res.redirect('/login');
     }
 });
-// MORE STRIPE STUFF. EVENTUALLY MAKE THIS A SEPERATE ROUTER
+
 router.post('/create-checkout-session', async (req, res) => {
   // Get products from cart
   const isLoggedIn = req.session.isLoggedIn;
@@ -66,6 +67,11 @@ router.post('/create-checkout-session', async (req, res) => {
   console.log(items);
 
 
+  if(items.length <= 0 ){
+    console.log("No items in cart!");
+    res.redirect("/dashboard");
+    return;
+  } else {
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
       line_items: items,
@@ -75,26 +81,44 @@ router.post('/create-checkout-session', async (req, res) => {
     });
   
     res.send({clientSecret: session.client_secret});
+  }
 });
 
 router.get('/session-status', async (req, res) => {
-    const sessionId = req.query.session_id;
-    console.log('session id: ', sessionId);
-    console.log(sessionId);
-    try{
-      const session = await stripe.checkout.sessions.retrieve(sessionId);
-    } catch (error){
-      if(error){
-        console.error("Error:", error.message);
-        return;
-      }
-    }
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-  
-    res.send({
-      status: session.status,
-      customer_email: session.customer_details.email
-    });
+  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+
+  // if(session.status)
+  if (session.status == "complete") {
+    console.log("Session status:", session.status);
+    const user_id = req.session.userId;
+    db.deleteCart(user_id);
+    console.log("The transaction completed successfully.");
+  }
+
+  res.send({
+    status: session.status,
+    customer_email: session.customer_details.email
   });
+});
+
+// router.get('/session-status', async (req, res) => {
+//     // const sessionId = req.query.session_id;
+//     // console.log('session id: ', sessionId);
+//     // console.log(sessionId);
+//     // try{
+//     //   const session = await stripe.checkout.sessions.retrieve(sessionId);
+//     // } catch (error){
+//     //   if(error){
+//     //     console.error("Error:", error.message);
+//     //     return;
+//     //   }
+//     // }
+//     // const session = await stripe.checkout.sessions.retrieve(sessionId);
+  
+//     // res.send({
+//     //   status: session.status,
+//     //   customer_email: session.customer_details.email
+//     // });
+//   });
 
 module.exports = router;
