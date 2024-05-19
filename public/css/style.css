@@ -136,26 +136,53 @@ a:hover {
     filter: drop-shadow(var(--border-color) 0 0 10px);
   }
   .banner-text {
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding: 25px;
-    color: #2200ff;
+    padding-left: 35px;
+    color: white;
+    background: -webkit-linear-gradient(#ff00b7, #1e0081);
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color: transparent; */
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e60073, 0 0 4px #e60073, 0 0 5px #e60073, 0 0 6px #e60073, 0 0 7px #e60073;
+    }
+    to {
+      text-shadow: 0 0 2px #fff, 0 0 3px #ff4da6, 0 0 4px #ff4da6, 0 0 5px #ff4da6, 0 0 6px #ff4da6, 0 0 7px #ff4da6, 0 0 8px #ff4da6;
+    }
   }
   .sale-button {
     margin-left: 45px;
     text-align: center;
     padding: 40px 80px;
-    background-color: #F205CB;
+    background-color: #00c116;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
     border-radius: 1000px;
     font-family: "burnaby-stencil", sans-serif;
-    color: #2200ff;
+    color: #ffffff;
     margin-bottom: 10px;
     font-size: 4rem;
+    background-color:#2c0296;
+    background-image:
+    radial-gradient(at 31% 21%, rgb(149, 0, 255) 0px, transparent 100%);
+    /* radial-gradient(at 50% 47%, rgb(255, 0, 4) 0px, transparent 50%),
+    radial-gradient(at 15% 99%, hsla(352,75%,72%,1) 0px, transparent 50%),
+    radial-gradient(at 61% 54%, hsla(254,76%,73%,1) 0px, transparent 50%),
+    radial-gradient(at 16% 29%, rgb(0, 255, 89) 0px, transparent 50%),
+    radial-gradient(at 29% 90%, rgb(121, 0, 201) 0px, transparent 50%),
+    radial-gradient(at 35% 52%, hsla(103,96%,72%,1) 0px, transparent 50%); */
   }
   .sale-button:hover {
-    background-color: #F205CB;
+    background-color: #1b015d;
+    background-image:
+    radial-gradient(at 31% 21%, rgb(108, 0, 184) 0px, transparent 100%);
   }
 
   /* Product Catalog */
@@ -246,3 +273,18 @@ a:hover {
   border-radius: 5px;
   box-shadow: 0 0 35px blueviolet;
 } */
+
+footer {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-size: large;
+  margin-top: 0px;
+  background-color: var(--darker-bg-translucent);
+  color: var(--hover-text-color);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 20px;
+
+}
