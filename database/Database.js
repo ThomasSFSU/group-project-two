@@ -65,7 +65,7 @@ class Database {
         profile_id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id           INTEGER NOT NULL,
         profile_img_path  VARCHAR(255) NOT NULL,
-        email,        VARCHAR(255) NOT NULL,
+        email        VARCHAR(255) NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users (ID)
       );
     `);
