@@ -3,3 +3,5 @@ node_modules/
 users.db
 .DS_STORE
 .env
+# Local Netlify folder
+.netlify
