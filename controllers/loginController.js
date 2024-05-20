@@ -5,7 +5,10 @@ const handleLogin = async (req, res) => {
     let user = req.body.username;
     let pwd = req.body.password;
 
-    if (!user || !pwd) return res.status(400).json({'message': 'username and password are required.'});
+    if (!user || !pwd){
+        return res.redirect('/login');
+        // return res.status(400).json({'message': 'username and password are required.'});
+    }
     // Check for if user exists
     const sqlCommand = `SELECT * FROM users WHERE username = '${user}'`;
     database.db.all(sqlCommand, async (error, rows) => {

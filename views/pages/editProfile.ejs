@@ -24,19 +24,11 @@
         </header>
             <main>
                 <h1>Hi <%= username %> welcome to the site!</h1>
-                <form action="/login" method="post">
+                <form id action="/" method="post">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                    <select>
-                        <div>
-                            <img src="profile-images/profileOne.jpg" id="profileImage"/>
-                            <option style="background-image:url('profile-images/profileOne.jpg');">X</option>
-                        </div>
-                        <option style="background-image:url();">PROFILE 2</option>
-                        <option style="background-image:url();">PROFILE 3</option>
-                        </select> 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required />
+                    <label for="profile_image">profile image number</label>
+                    <input type="number" min="1" max="8" id="profile_image" name="profile_image" required />
                     <button type="submit">Submit</button>
                 </form>
                 
@@ -74,8 +66,5 @@
                     </a>    
                 </article>
             </main>
-            <!-- <footer>
-                <h3>Copywrite © 2024 BBV Productions</h3>
-            </footer> -->
     </body>
 </html>

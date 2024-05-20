@@ -38,6 +38,7 @@ app.use(rootRouter);
 app.use('/return', require('./routes/return.js'))
 app.use('/register', require('./routes/register'));
 app.use('/login', require('./routes/login.js'));
+app.use('/profile', require('./routes/profile.js'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/console', require('./routes/console'));
 app.use('/catalog', require('./routes/catalog.js'));

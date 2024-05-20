@@ -71,7 +71,6 @@ class Database {
     `);
     }
     addProfile(user_id, profile_img_path, email) {
-      
       this.db.run(
         'INSERT INTO profiles (user_id, profile_img_path, email) VALUES (?, ?, ?)',
         [user_id, profile_img_path, email],
