@@ -23,14 +23,6 @@
             </ul>
         </header>
             <main>
-                <form id action="/profile" method="post">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required />
-                    <label for="profile_image_number">profile image number</label>
-                    <input type="number" min="1" max="8" id="profile_image_number" name="profile_image_number" required />
-                    <button type="submit">Submit</button>
-                </form>
-                
                 <article class="profile-info">
                     <h1>Profile Picture</h1>
                     <div id="profile-container">
@@ -43,10 +35,17 @@
                         <img src="profile-images/profile7.jpg" id="profileImage"/>
                         <img src="profile-images/profile8.jpg" id="profileImage"/>
                     </div>
-                    <h1>Select your avatar, choose your persona.</h1>
+                    <h2>To select your avatar, enter the corresponding number.</h2>
                 </article>
+                <form id action="/profile" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                    <label for="profile_image_number">profile image number</label>
+                    <input type="number" min="1" max="8" id="profile_image_number" name="profile_image_number" required />
+                    <button type="submit">Submit</button>
+                </form>
     
-               <article class="account-info">
+               <!-- <article class="account-info">
                     <a href="#">
                         <h2>Account Info</h2>
                         <p>Look over e-mail, password, <br> and shipping address.</p>
@@ -63,7 +62,7 @@
                         <h2>Back to Shopping?</h2>
                         <p>Revert to the market, back to the grid.</p>
                     </a>    
-                </article>
+                </article> -->
             </main>
     </body>
 </html>
