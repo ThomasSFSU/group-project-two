@@ -151,10 +151,10 @@ label {
   
   input[type=email]:not(:focus):invalid,
   input[type=password]:not(:focus):invalid {
-    color: var(--alert-text-color);
+    color: black;
   }
   input:invalid {
-    border: 3px solid rgba(255, 0, 0, 0.3);
+    border: 3px solid darkblue;
   }
   
   input:focus {
