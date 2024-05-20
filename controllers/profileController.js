@@ -12,7 +12,7 @@ const profileUpdate = async (req, res) => {
     console.log("PFP IMAGE NUMBER: ", profile_image_number);
 
     const user_id = req.session.userId;
-    database.addProfile(user_id, email, `profile-images/profile${profile_image_number}.jpg`);
+    database.addProfile(user_id, `profile-images/profile${profile_image_number}.jpg`, email);
     req.session.email = email;
     req.session.pfp_url = `profile-images/profile${profile_image_number}.jpg`;
     req.session.profileExists = true;

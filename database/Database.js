@@ -83,7 +83,7 @@ class Database {
         }
       );
     }
-    profileExists(user_id, product_id){
+    profileExists(user_id){
       return new Promise( (resolve, reject) => {
         const sql = 'SELECT * FROM profiles WHERE user_id = ?';
         this.db.all(sql, [user_id], (error, rows) =>{
@@ -97,6 +97,18 @@ class Database {
             return resolve(false);
           }
         })
+      })
+    }
+    getProfile(user_id){
+      let sql = 'SELECT * FROM profiles WHERE user_id = ?';
+      return new Promise(resolve=>{
+        this.db.get( sql, [user_id], (error, row) => {
+          if(error){
+            console.error(error.message);
+            throw new Error(error.message);
+          }
+          resolve(row);
+        });
       })
     }
     insertUser(username, password) {

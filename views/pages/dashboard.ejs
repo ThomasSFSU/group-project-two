@@ -23,15 +23,10 @@
             </ul>
         </header>
             <main>
-                <h1>Hi <%= username %> welcome to the site!</h1>
-                
                 <article class="profile-info">
-                    <!-- <h1>Profile Picture</h1> -->
-                    <h1>Hi <%= username %> welcome to the site!</h1>
-
                     <div id="profile-container">
-
-                        <img src=<%= pfp_url %> id="profileImage"/>
+                        
+                        <img src=<%= profile.profile_img_path%> id="profileImage"/>
                         <!-- <img src="profile-images/profileOne.jpg" id="profileImage"/>
                         <img src="profile-images/profileTwo.jpg" id="profileImage"/>
                         <img src="profile-images/profileThree.jpg" id="profileImage"/>
@@ -41,7 +36,7 @@
                         <img src="profile-images/profileSeven.jpg" id="profileImage"/>
                         <img src="profile-images/profileEight.jpg" id="profileImage"/> -->
                     </div>
-                    <h1>Select your avatar, choose your persona.</h1>
+                    <h1>Hi <%= username %> welcome to the site!</h1>
                 </article>
     
                <article class="account-info">
