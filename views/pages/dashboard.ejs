@@ -28,7 +28,7 @@
                     <div id="profile-container">
                         <img src=<%= profile.profile_img_path%> id="profileImage"/>
                     </div>
-                    <h1>Hi <%= username %> welcome to the site!</h1>
+                    <h1>Hi <%= username %>, welcome to Kommerse Magazine!</h1>
                 </article>
 
                 <article class="account-info">
@@ -39,13 +39,15 @@
                 </article>
                 <article class="extra-feature">
                         <h2>View Cart</h2>
-                        <a id="cart_icon" href="/checkout"><div class="nav-link-wrapper"><span class="material-symbols-outlined">shopping_cart</span></div></a>
+                        <a id="cart_icon" href="/checkout">
+                            <p>GO TO CART</p>
+                        </a>
                     </a>
                 </article>
                 <article class="extra-feature">
+                    <h2>Continue Shopping</h2>
                     <a href="/catalog">
-                        <h2>Back to Shopping?</h2>
-                        <p>Revert to the market, back to the grid.</p>
+                        <p>GO TO STORE</p>
                     </a>    
                 </article>
             </main>

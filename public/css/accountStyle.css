@@ -44,9 +44,11 @@ div {
     border: 1px solid;
     margin: 10px;
     padding: 5px;
-    background-color: black;
+    border-radius: 25px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.75);
     box-sizing: border-box;
-    opacity: 90%;
+    /* opacity: 90%; */
 }
 
 .account-info h2 {
@@ -67,18 +69,19 @@ label {
     border: 1px solid;
     margin: 10px;
     padding: 5px;
-    background-color: black;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.639);
     box-sizing: border-box;
+    text-align: center;
     opacity: 90%;
 }
 .extra-feature h2 {
-    margin-left: 10px;
+    /* margin-left: 10px; */
     opacity: 100%;
     font-size: 2rem;
 }
 .extra-feature p {
     font-size: 1.5rem;
-    margin-left: 10px;
     opacity: 100%;
 }
 
@@ -209,3 +212,12 @@ label {
   
   
   /* Design/Reference: https://web.dev/articles/codelab-sign-in-form-best-practices */
+
+  a {
+    color: var(--text-color);
+  }
+
+  /* #cart_icon {
+    color: var(--highlight-text-color);
+    font-size: 1.3rem;
+  } */
