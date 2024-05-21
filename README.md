@@ -6,7 +6,9 @@ A modern e-commerce solution.
 
 ## Usage
 
-To see our project in action, click [here](https://group-project-two.onrender.com/). Please note that lag time is due to the limited server bandwidth on the free tier hosting option.
+To see our project in action, click [here](https://group-project-two.onrender.com/).
+
+Please note that lag time is due to the limited server bandwidth on the free tier hosting option.
 
 ##  Analysis
 
