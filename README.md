@@ -6,6 +6,10 @@ A modern e-commerce solution.
 
 ## Documentation
 
+To see our project in action, click [here](https://group-project-two.onrender.com/).
+
+##  Analysis
+
 ### Overview
 Our project, a website named Kommerse Magazine, utilizes a wide array of web technologies to deliver a stylish and robust ecommerce platform. It is built in Node.js, leverages the Express.js Framework, incorporates SQLite for database functionality, and makes use of Embedded Javascript Templates (EJS) to server side render pages before sending them to the client. Additionally, we incorporate custom middleware, implement routers, and integrate node modules to deliver highly effective features – increasing value for users and ensuring that their data is secure. The overall design follows the Model View Controller (MVC) structure which segments the data, views, and controllers into separate areas of the app.
 The structure and architecture for Kommerse Magazine consists of many folders and files for different functions and uses the ExpressJS framework. Firstly, the views folder consists of what the user will see on the client side. Within this folder are plain HTML files, and EJS templates which are shown to the user. Also present in this folder is the 404 page, which is served in case a file cannot be found and tells the user that the site has had an issue and prompts them to return back to the home page. The index file is the home page of the site, and features a banner showing a sale message and call to action.  Finally, the login and sign-up files contain forms which let the user enter their information to log into the site with their existing account or to create a new account. In a future iteration of this project, adding an action-directed flow from a login attempt with an invalid username to the sign up page would be a useful way to guide users and improve user retention.
