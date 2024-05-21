@@ -111,6 +111,26 @@ class Database {
         });
       })
     }
+    updateProfileEmail(user_id, email){
+      const sql = 'UPDATE profiles SET email = ? WHERE user_id = ?';
+      this.db.run(sql, [email, user_id], (error) => {
+        if (error) {
+          console.error(error.message);
+          throw new Error(error.message);
+        }
+        console.log('Updated user email');
+      })
+    }
+    updateProfilePicture(user_id, profile_img_path){
+      const sql = 'UPDATE profiles SET profile_img_path = ? WHERE user_id = ?';
+      this.db.run(sql, [profile_img_path, user_id], (error) => {
+        if (error) {
+          console.error(error.message);
+          throw new Error(error.message);
+        }
+        console.log('Updated user profile pic');
+      })
+    }
     insertUser(username, password) {
         this.db.run(
           `INSERT INTO users (username, password) VALUES (?, ?)`,
