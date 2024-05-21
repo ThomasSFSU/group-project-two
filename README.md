@@ -4,7 +4,7 @@ A modern e-commerce solution.
 ## Main Page
 ![Main Page Design](/mockups/HomepageScreenshot.png)
 
-## Documentation
+## Usage
 
 To see our project in action, click [here](https://group-project-two.onrender.com/).
 
@@ -45,7 +45,7 @@ The functionality of asynchronous JavaScript helps in many ways, for example in 
 Building the cart proved to be quite the task as well. Before building the cart, there had to be a table created that tied the cart to the specific user and the items they would like to buy. This relational database approach was very interesting and wound up working well, though at first it seemed very confusing. The carts table also then references other tables, such as the products table that contained our products and their specific ID, and the user table to get the specific user ID to tie the cart made for them. Next up was the logic behind the cart’s functions, which tested the knowledge gained from the past tutorials. It tested our knowledge of the various SQL commands gained from tutorials, and involved a considerable amount of study. Commands to the database were further complicated since which SQL to run depends on the existing state of the database. For example the UPDATE command would really come into play when we would update the quantity of items that the user would like to buy, such that if they would want to purchase two of the same item or product. This means that if they wanted two jetpacks, we would have to increment product_quantity in the carts table of our database by one. If the user decides to change their mind and doesn't want two afterwards we would have to decrement or subtract product_quantity by one instead. Knowing which command to use ended up making sense, but pushed the limits of our comprehension at the time.
 
 ### Conclusion
-Overall, this project really put everything we covered throughout the semester into one complete website. This project applied all the lectures starting from the very first lesson about file pathing or refresher of tree data structure and how it connects with file structures, all the way to creating a database to create an e-commerce website as we needed to utilize all the tools from throughout the semester in order to make this website come to life. This ecommerse project was a great way to learn about web development in a hands-on way!
+Overall, this project really put everything we covered throughout the semester into one complete website. This project applied all the lectures starting from the very first lesson about file pathing or refresher of tree data structure and how it connects with file structures, all the way to creating a database to create an e-commerce website as we needed to utilize all the tools from throughout the semester in order to make this website come to life. This ecommerce project was a great way to learn about web development in a hands-on way!
 
 
 ## Design Notes
