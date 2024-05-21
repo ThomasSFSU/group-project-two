@@ -216,9 +216,18 @@ a:hover {
 }
 .product-card {
     position: relative;
-    margin: 10px;
+    margin: 20px;
+    padding: 64px;
+    background-color: var(--darker-bg-translucent);
+    border-radius: 15px;
 }
 
+.product-image {
+  width: var(--card-width);
+  border: 5px solid transparent;
+  border-radius: 15px;
+  box-shadow: 0 0 35px blueviolet;
+}
 .product-title {
     text-align: center;
     font-size: 2rem;
@@ -234,11 +243,10 @@ a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 380px;
+    width: var(--card-width) + 1000;
     font-size: 1.4rem;
     padding-left: 10px;
     padding-right: 10px;
-    
 }
 .old-product-price {
     position: absolute;
@@ -276,12 +284,6 @@ a:hover {
 .product-card:hover .product-text {
     visibility: visible;
 }
-
-/* .product-image {
-  border: 5px solid transparent;
-  border-radius: 5px;
-  box-shadow: 0 0 35px blueviolet;
-} */
 
 footer {
   text-align: center;
