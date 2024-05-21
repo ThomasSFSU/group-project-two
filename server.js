@@ -5,6 +5,9 @@ const path = require('path');
 const { logger } = require('./middleware/logEvents.js');
 const PORT = process.env.port || 3000;
 
+require('dotenv').config(); // Configure environemnt variable which stores session secret
+const SESSION_SECRET = process.env.SESSION_SECRET;
+
 // Custom routers
 const rootRouter = require('./routes/root.js');
 
@@ -24,7 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const session = require('express-session');
 app.use(
   session({
-      secret: 'your-secret-key',
+      secret: SESSION_SECRET,
+      secure: true,
       resave: false,
       saveUninitialized: true
   })
