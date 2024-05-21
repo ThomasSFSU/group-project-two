@@ -8,7 +8,7 @@ const PORT = process.env.port || 3000;
 require('dotenv').config(); // Configure environment variable which stores API key.
 const API_KEY = process.env.API_KEY;
 const stripe = require('stripe')(API_KEY);
-const DOMAIN = `https://group-project-two.onrender.com:${PORT}`;
+const DOMAIN = `https://group-project-two.onrender.com`;
 
 
 router.get('/', async (req, res) => {
